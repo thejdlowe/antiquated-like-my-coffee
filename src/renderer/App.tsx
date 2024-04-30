@@ -1,5 +1,6 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import icon from '../../assets/icon.svg';
+import { StartScreen } from './pages';
 import './App.css';
 
 function Hello() {
@@ -43,7 +44,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Hello />} />
+        <Route path="/" element={<StartScreen />} />
       </Routes>
     </Router>
   );
