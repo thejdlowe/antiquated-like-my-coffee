@@ -12,16 +12,9 @@ import path from 'path';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
-import { findByIds } from 'usb';
+import { initiateIRReceiver } from './IRDetection';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
-
-const DEVICE_INFO = {
-	vendorId: 1118,
-	productId: 672,
-	interfaceId: 0,
-	endpointId: 0,
-};
 
 class AppUpdater {
 	constructor() {
@@ -32,55 +25,6 @@ class AppUpdater {
 }
 
 let mainWindow: BrowserWindow | null = null;
-
-const initiateIRReceiver = async () => {
-	const legacyDevice = findByIds(DEVICE_INFO.vendorId, DEVICE_INFO.productId);
-	let canAccept = false;
-	let lastValue = '';
-	if (legacyDevice) {
-		legacyDevice.open();
-		const legacyInterface =
-			legacyDevice.interfaces[DEVICE_INFO.interfaceId];
-
-		if (legacyInterface.isKernelDriverActive()) {
-			legacyInterface.detachKernelDriver();
-		}
-
-		const inEndpoint = legacyInterface.endpoints[DEVICE_INFO.endpointId];
-
-		inEndpoint.on('data', (usbEvent) => {
-			const dataView = new Uint8Array(usbEvent);
-			const whichController = dataView[2];
-			const buttonsPressed = dataView[4];
-			const altButtonsPressed = dataView[3];
-			const startButton = !!(altButtonsPressed & 0x10);
-			const backButton = !!(altButtonsPressed & 0x20);
-			const XboxButton = !!(buttonsPressed & 0x04);
-			const bigButton = !!(buttonsPressed & 0x08);
-			const AButton = !!(buttonsPressed & 0x10);
-			const BButton = !!(buttonsPressed & 0x20);
-			const XButton = !!(buttonsPressed & 0x40);
-			const YButton = !!(buttonsPressed & 0x80);
-			mainWindow?.webContents.send('button-pressed', {
-				whichController,
-				startButton,
-				backButton,
-				XboxButton,
-				bigButton,
-				AButton,
-				BButton,
-				XButton,
-				YButton,
-			});
-		});
-
-		inEndpoint.on('error', (err) => {
-			console.log('Error', err);
-		});
-
-		inEndpoint.startPoll();
-	}
-};
 
 ipcMain.on('ipc-example', async (event, arg) => {
 	const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
@@ -167,7 +111,7 @@ const createWindow = async () => {
 		return { action: 'deny' };
 	});
 
-	initiateIRReceiver();
+	initiateIRReceiver(mainWindow);
 
 	// Remove this if your app does not use auto updates
 	// eslint-disable-next-line
