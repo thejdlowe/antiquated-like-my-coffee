@@ -15,7 +15,7 @@ export const initiateIRReceiver = async (mainWindow: BrowserWindow) => {
 	if (legacyDevice) {
 		legacyDevice.open();
 		const legacyInterface =
-			legacyDevice.interfaces[DEVICE_INFO.interfaceId];
+			legacyDevice?.interfaces?[DEVICE_INFO.interfaceId];
 
 		if (legacyInterface.isKernelDriverActive()) {
 			legacyInterface.detachKernelDriver();
@@ -23,7 +23,7 @@ export const initiateIRReceiver = async (mainWindow: BrowserWindow) => {
 
 		const inEndpoint = legacyInterface.endpoints[DEVICE_INFO.endpointId];
 
-		inEndpoint.on('data', (usbEvent) => {
+		inEndpoint.on('data', (usbEvent: any) => {
 			const dataView = new Uint8Array(usbEvent);
 			const whichController = dataView[2];
 			const buttonsPressed = dataView[4];
@@ -49,7 +49,7 @@ export const initiateIRReceiver = async (mainWindow: BrowserWindow) => {
 			});
 		});
 
-		inEndpoint.on('error', (err) => {
+		inEndpoint.on('error', (err:any) => {
 			console.log('Error', err);
 		});
 

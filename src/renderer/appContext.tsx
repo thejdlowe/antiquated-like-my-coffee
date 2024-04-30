@@ -7,7 +7,8 @@ interface AppContextProviderProps {
 const AppContext = createContext({});
 
 export const AppContextProvider:React.FC<AppContextProviderProps> = ({children}) => {
-    return <AppContext.Provider value={}>{children}</AppContext.Provider>
+
+    return (<AppContext.Provider value={{}}>{children}</AppContext.Provider>)
 };
 
 export const useAppContext = () => {
