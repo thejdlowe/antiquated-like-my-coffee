@@ -12,8 +12,16 @@ import path from 'path';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
+import { findByIds } from 'usb';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+
+const DEVICE_INFO = {
+  vendorId: 1118,
+  productId: 672,
+  interfaceId: 0,
+  endpointId: 0,
+};
 
 class AppUpdater {
   constructor() {
@@ -24,6 +32,50 @@ class AppUpdater {
 }
 
 let mainWindow: BrowserWindow | null = null;
+
+const initiateIRReceiver = async () => {
+  const legacyDevice = findByIds(DEVICE_INFO.vendorId, DEVICE_INFO.productId);
+  let canAccept = false;
+  let lastValue = '';
+  if (legacyDevice) {
+    legacyDevice.open();
+    const legacyInterface = legacyDevice.interfaces[DEVICE_INFO.interfaceId];
+
+    if (legacyInterface.isKernelDriverActive()) {
+      legacyInterface.detachKernelDriver();
+    }
+
+    const inEndpoint = legacyInterface.endpoints[DEVICE_INFO.endpointId];
+
+    inEndpoint.on('data', (usbEvent) => {
+      const dataView = new Uint8Array(usbEvent);
+      const whichController = dataView[2];
+      const decoded = `${dataView[0]}:${dataView[1]}:${dataView[2]}:${dataView[3]}:${dataView[4]}`;
+      console.log(decoded);
+      if (lastValue !== decoded) {
+        if (whichController === 2) {
+          canAccept = true;
+          mainWindow.webContents.send('button-update', 'reset');
+          lastValue = decoded;
+        } else if (canAccept === true) {
+          canAccept = false;
+          let whatToSend = 'broken';
+          if (whichController === 0) whatToSend = 'P1';
+          else if (whichController === 1) whatToSend = 'P2';
+          else if (whichController === 3) whatToSend = 'P3';
+          mainWindow.webContents.send('button-update', whatToSend);
+          lastValue = decoded;
+        }
+      }
+    });
+
+    inEndpoint.on('error', (err) => {
+      console.log('Error', err);
+    });
+
+    inEndpoint.startPoll();
+  }
+};
 
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
@@ -58,7 +110,7 @@ const installExtensions = async () => {
 
 const createWindow = async () => {
   if (isDebug) {
-    await installExtensions();
+    //await installExtensions();
   }
 
   const RESOURCES_PATH = app.isPackaged
@@ -91,6 +143,7 @@ const createWindow = async () => {
       mainWindow.minimize();
     } else {
       mainWindow.show();
+      mainWindow.webContents.setDevToolsWebContents(mainWindow.webContents);
     }
   });
 
@@ -107,9 +160,11 @@ const createWindow = async () => {
     return { action: 'deny' };
   });
 
+  initiateIRReceiver();
+
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
-  new AppUpdater();
+  // new AppUpdater();
 };
 
 /**
