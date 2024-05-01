@@ -23,9 +23,8 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 	children,
 }) => {
 	const [showState, setShowState] = useState<ShowStates>('beginning');
-	const [buttonPressed, setButtonPressed] = useState<{} | ButtonPressedProps>(
-		{},
-	);
+	const [buttonPressed, setButtonPressed] =
+		useState<null | ButtonPressedProps>();
 
 	useEffect(() => {
 		window.electronAPI.onButtonUpdate((value: ButtonPressedProps) => {
@@ -45,8 +44,12 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 	}, []);
 
 	useEffect(() => {
+		console.log(buttonPressed);
 		if (showState === 'beginning') {
-			//if(buttonPressed)
+			if (buttonPressed) {
+				if (buttonPressed.whichController) {
+				}
+			}
 		}
 	}, [buttonPressed, showState]);
 	return (
