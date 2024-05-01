@@ -7,15 +7,28 @@ interface AppContextProviderProps {
 const AppContext = createContext({});
 
 type ShowStates = 'beginning' | 'active' | 'shutdown';
+interface ButtonPressedProps {
+	whichController: 0 | 1 | 2 | 3;
+	startButton: boolean;
+	backButton: boolean;
+	XboxButton: boolean;
+	bigButton: boolean;
+	AButton: boolean;
+	BButton: boolean;
+	XButton: boolean;
+	YButton: boolean;
+}
 
 export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 	children,
 }) => {
 	const [showState, setShowState] = useState<ShowStates>('beginning');
-	const [buttonPressed, setButtonPressed] = useState({});
+	const [buttonPressed, setButtonPressed] = useState<{} | ButtonPressedProps>(
+		{},
+	);
 
 	useEffect(() => {
-		window.electronAPI.onButtonUpdate((value) => {
+		window.electronAPI.onButtonUpdate((value: ButtonPressedProps) => {
 			// if (value === "ready") {
 			// 	document.querySelectorAll("#P1, #P2, #P3").forEach((el) => {
 			// 		el.style.backgroundColor = "white";
@@ -32,7 +45,9 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 	}, []);
 
 	useEffect(() => {
-		console.log(buttonPressed);
+		if (showState === 'beginning') {
+			//if(buttonPressed)
+		}
 	}, [buttonPressed, showState]);
 	return (
 		<AppContext.Provider value={{ showState, setShowState }}>
