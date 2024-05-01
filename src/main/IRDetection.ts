@@ -15,7 +15,7 @@ export const initiateIRReceiver = async (mainWindow: BrowserWindow) => {
 	if (legacyDevice) {
 		legacyDevice.open();
 		const legacyInterface =
-			legacyDevice?.interfaces?[DEVICE_INFO.interfaceId];
+			legacyDevice?.interfaces[DEVICE_INFO.interfaceId];
 
 		if (legacyInterface.isKernelDriverActive()) {
 			legacyInterface.detachKernelDriver();
@@ -49,7 +49,7 @@ export const initiateIRReceiver = async (mainWindow: BrowserWindow) => {
 			});
 		});
 
-		inEndpoint.on('error', (err:any) => {
+		inEndpoint.on('error', (err: any) => {
 			console.log('Error', err);
 		});
 
