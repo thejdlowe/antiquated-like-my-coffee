@@ -48,6 +48,7 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 
 	useEffect(() => {
 		window.electronAPI.onButtonUpdate((value: ButtonPressedProps) => {
+            console.log(value);
 			setButtonPressed(value);
 		});
 	}, []);
