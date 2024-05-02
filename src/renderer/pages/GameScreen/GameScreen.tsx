@@ -14,9 +14,10 @@ export const GameScreen = () => {
 	}, [timeRemaining]);
 
 	const updateTimer = () => {
-		console.log('fart');
+		setTimeRemaining((count) => count - 1);
 	};
 	useEffect(() => {
+		setTimeRemaining(60);
 		const timerID = window.setInterval(() => {
 			updateTimer();
 		}, 1000);
@@ -27,7 +28,7 @@ export const GameScreen = () => {
 	}, []);
 	return (
 		<>
-			<div>WE ON GAME SCREEN</div>
+			<div>WE ON GAME SCREEN {parseTimer()}</div>
 		</>
 	);
 };
