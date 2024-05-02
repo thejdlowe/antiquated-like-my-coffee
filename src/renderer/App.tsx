@@ -4,13 +4,13 @@ import { AppContextProvider } from './appContext';
 
 export default function App() {
 	return (
-		<AppContextProvider>
-			<Router>
+		<Router>
+			<AppContextProvider>
 				<Routes>
 					<Route path="/" element={<StartScreen />} />
 					<Route path="/game" element={<GameScreen />} />
 				</Routes>
-			</Router>
-		</AppContextProvider>
+			</AppContextProvider>
+		</Router>
 	);
 }
