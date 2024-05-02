@@ -4,7 +4,19 @@ interface AppContextProviderProps {
 	children?: React.ReactNode | React.ReactNode[];
 }
 
-const AppContext = createContext({});
+const AppContext = createContext<Record<string, ButtonPressedProps>>({
+	buttonPressed: {
+		whichController: 0,
+		startButton: false,
+		backButton: false,
+		XboxButton: false,
+		bigButton: false,
+		AButton: false,
+		BButton: false,
+		XButton: false,
+		YButton: false,
+	},
+});
 
 type ShowStates = 'beginning' | 'active' | 'shutdown';
 interface ButtonPressedProps {
@@ -22,38 +34,32 @@ interface ButtonPressedProps {
 export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 	children,
 }) => {
-	const [showState, setShowState] = useState<ShowStates>('beginning');
-	const [buttonPressed, setButtonPressed] =
-		useState<null | ButtonPressedProps>();
+	const [buttonPressed, setButtonPressed] = useState<ButtonPressedProps>({
+		whichController: 0,
+		startButton: false,
+		backButton: false,
+		XboxButton: false,
+		bigButton: false,
+		AButton: false,
+		BButton: false,
+		XButton: false,
+		YButton: false,
+	});
 
 	useEffect(() => {
 		window.electronAPI.onButtonUpdate((value: ButtonPressedProps) => {
-			// if (value === "ready") {
-			// 	document.querySelectorAll("#P1, #P2, #P3").forEach((el) => {
-			// 		el.style.backgroundColor = "white";
-			// 	});
-			// 	document.querySelector("#rawValue").innerHTML = "Ready";
-			// } else if (["P1", "P2", "P3"].includes(value)) {
-			// 	const el = document.querySelector(`#${value}`);
-			// 	el.style.backgroundColor = el.dataset.background;
-			// 	document.querySelector("#rawValue").innerHTML = "Not Ready";
-			// }
-
 			setButtonPressed(value);
 		});
 	}, []);
 
-	useEffect(() => {
-		console.log(buttonPressed);
-		if (showState === 'beginning') {
-			if (buttonPressed) {
-				if (buttonPressed.whichController) {
-				}
-			}
-		}
-	}, [buttonPressed, showState]);
+	// useEffect(() => {
+	// 	console.log(buttonPressed);
+	// 	if (showState === 'beginning') {
+
+	// 	}
+	// }, [buttonPressed, showState]);
 	return (
-		<AppContext.Provider value={{ showState, setShowState }}>
+		<AppContext.Provider value={{ buttonPressed }}>
 			{children}
 		</AppContext.Provider>
 	);
