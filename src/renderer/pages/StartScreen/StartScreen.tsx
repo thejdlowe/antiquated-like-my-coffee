@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
+import { whichControllerIsWhich } from '../../consts';
 
 export const StartScreen = () => {
 	const { buttonPressed } = useAppContext();
@@ -8,7 +9,7 @@ export const StartScreen = () => {
 	useEffect(() => {
 		if (
 			buttonPressed &&
-			buttonPressed.whichController == 2 &&
+			buttonPressed.whichController == whichControllerIsWhich.HOST &&
 			buttonPressed.bigButton
 		) {
 			navigate('/game');

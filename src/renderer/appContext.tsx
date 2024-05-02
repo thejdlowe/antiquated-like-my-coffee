@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { whichControllerIsWhich } from './consts';
 
 interface AppContextProviderProps {
 	children?: React.ReactNode | React.ReactNode[];
@@ -34,6 +36,7 @@ interface ButtonPressedProps {
 export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 	children,
 }) => {
+	const navigate = useNavigate();
 	const [buttonPressed, setButtonPressed] = useState<ButtonPressedProps>({
 		whichController: 0,
 		startButton: false,
@@ -48,10 +51,21 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 
 	useEffect(() => {
 		window.electronAPI.onButtonUpdate((value: ButtonPressedProps) => {
-            console.log(value);
+			console.log(value);
 			setButtonPressed(value);
 		});
 	}, []);
+
+	useEffect(() => {
+		if (
+			buttonPressed &&
+			buttonPressed.whichController === whichControllerIsWhich.HOST &&
+			buttonPressed.startButton &&
+			buttonPressed.backButton
+		) {
+			navigate('/shutdown');
+		}
+	}, [buttonPressed]);
 
 	// useEffect(() => {
 	// 	console.log(buttonPressed);
