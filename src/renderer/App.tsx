@@ -1,5 +1,5 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import { StartScreen, GameScreen } from './pages';
+import { StartScreen, GameScreen, ShutdownScreen } from './pages';
 import { AppContextProvider } from './appContext';
 
 export default function App() {
@@ -9,6 +9,7 @@ export default function App() {
 				<Routes>
 					<Route path="/" element={<StartScreen />} />
 					<Route path="/game" element={<GameScreen />} />
+					<Route path="/shutdown" element={<ShutdownScreen />} />
 				</Routes>
 			</AppContextProvider>
 		</Router>
