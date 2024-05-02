@@ -1,4 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppContext } from '../../appContext';
+import { whichControllerIsWhich } from '../../consts';
 
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
@@ -23,6 +26,7 @@ export const GameScreen = () => {
 			}
 			return count - 1;
 		});
+		console.log('Timer updated');
 	};
 	useEffect(() => {
 		setTimeRemaining(60);
@@ -35,6 +39,18 @@ export const GameScreen = () => {
 			window.clearInterval(timerRef.current || 0);
 		};
 	}, []);
+
+	const { buttonPressed } = useAppContext();
+	const navigate = useNavigate();
+	useEffect(() => {
+		if (
+			buttonPressed &&
+			buttonPressed.whichController == whichControllerIsWhich.HOST &&
+			buttonPressed.XboxButton
+		) {
+			navigate('/');
+		}
+	}, [buttonPressed, navigate]);
 	return (
 		<>
 			<div>
