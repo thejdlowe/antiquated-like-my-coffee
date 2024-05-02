@@ -16,7 +16,7 @@ export const GameScreen = () => {
 
 	const updateTimer = () => {
 		setTimeRemaining((count) => {
-			if (count <= 0) {
+			if (count - 1 <= 0) {
 				window.clearInterval(timerRef.current || 0);
 				setGameRunning(false);
 				return 0;
