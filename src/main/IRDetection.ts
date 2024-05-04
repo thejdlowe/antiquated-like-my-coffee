@@ -14,7 +14,9 @@ export const initiateIRReceiver = async (mainWindow: BrowserWindow) => {
 	const lastValue = '';
 	if (legacyDevice) {
 		legacyDevice.open();
+
 		const legacyInterface =
+			// @ts-ignore
 			legacyDevice?.interfaces[DEVICE_INFO.interfaceId];
 
 		if (legacyInterface.isKernelDriverActive()) {
@@ -52,7 +54,7 @@ export const initiateIRReceiver = async (mainWindow: BrowserWindow) => {
 		inEndpoint.on('error', (err: any) => {
 			console.log('Error', err);
 		});
-
+		// @ts-ignore
 		inEndpoint.startPoll();
 	}
 };
