@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
-import { whichControllerIsWhich } from '../../consts';
+import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
 
 export const StartScreen = () => {
 	const { buttonPressed } = useAppContext();
@@ -15,7 +15,12 @@ export const StartScreen = () => {
 				buttonPressed.XButton ||
 				buttonPressed.YButton)
 		) {
-			navigate('/game');
+			let id = 'broken';
+			if (buttonPressed.AButton) id = buttonsToWhichRound.A_BUTTON + '';
+			if (buttonPressed.BButton) id = buttonsToWhichRound.B_BUTTON + '';
+			if (buttonPressed.XButton) id = buttonsToWhichRound.X_BUTTON + '';
+			if (buttonPressed.YButton) id = buttonsToWhichRound.Y_BUTTON + '';
+			navigate(`/game/:${id}`);
 		}
 	}, [buttonPressed, navigate]);
 	return (

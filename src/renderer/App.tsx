@@ -8,7 +8,7 @@ export default function App() {
 			<AppContextProvider>
 				<Routes>
 					<Route path="/" element={<StartScreen />} />
-					<Route path="/game" element={<GameScreen />} />
+					<Route path="/game/:round" element={<GameScreen />} />
 					<Route path="/shutdown" element={<ShutdownScreen />} />
 				</Routes>
 			</AppContextProvider>

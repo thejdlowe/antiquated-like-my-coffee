@@ -1,10 +1,11 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich } from '../../consts';
 
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
+	const { round } = useParams();
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [gameRunning, setGameRunning] = useState(false);
 
@@ -54,7 +55,7 @@ export const GameScreen = () => {
 	return (
 		<>
 			<div>
-				WE ON GAME SCREEN {parseTimer()} {gameRunning + ''}
+				WE ON GAME SCREEN {parseTimer()} {gameRunning + ''} {round}
 			</div>
 		</>
 	);
