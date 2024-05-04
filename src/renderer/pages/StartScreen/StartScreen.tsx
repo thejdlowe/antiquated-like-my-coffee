@@ -10,7 +10,10 @@ export const StartScreen = () => {
 		if (
 			buttonPressed &&
 			buttonPressed.whichController == whichControllerIsWhich.HOST &&
-			buttonPressed.bigButton
+			(buttonPressed.AButton ||
+				buttonPressed.BButton ||
+				buttonPressed.XButton ||
+				buttonPressed.YButton)
 		) {
 			navigate('/game');
 		}
