@@ -26,10 +26,13 @@ const electronHandler = {
 	},
 };
 
-contextBridge.exposeInMainWorld('electron', electronHandler);
-contextBridge.exposeInMainWorld('electronAPI', {
-	onButtonUpdate: (callback) =>
+const likeMyCoffeeHandler = {
+	onButtonUpdate: (callback: any) =>
 		ipcRenderer.on('button-pressed', (_event, value) => callback(value)),
-});
+};
+
+contextBridge.exposeInMainWorld('electron', electronHandler);
+contextBridge.exposeInMainWorld('electronAPI', likeMyCoffeeHandler);
 
 export type ElectronHandler = typeof electronHandler;
+export type LikeMyCoffeeHandler = typeof likeMyCoffeeHandler;

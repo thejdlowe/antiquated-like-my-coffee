@@ -67,12 +67,6 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 		}
 	}, [buttonPressed]);
 
-	// useEffect(() => {
-	// 	console.log(buttonPressed);
-	// 	if (showState === 'beginning') {
-
-	// 	}
-	// }, [buttonPressed, showState]);
 	return (
 		<AppContext.Provider value={{ buttonPressed }}>
 			{children}
