@@ -26,18 +26,31 @@ export const StartScreen = () => {
 			navigate(`/game/:${id}`);
 		}
 	}, [buttonPressed, navigate]);
+	const images = () => {
+		const holders = [];
+		for (const key in playerImages) {
+			holders.push(<img src={playerImages[key]} />);
+		}
+		return holders;
+	};
 	return (
 		<Container maxWidth={false}>
 			<Carousel
 				indicators={false}
-				interval={2000}
+				interval={6000}
 				autoPlay={true}
 				swipe={false}
 				animation="slide"
-				duration={600}
+				duration={2000}
+				stopAutoPlayOnHover={false}
 			>
-				<img src={playerImages.Alex} />
-				<img src={playerImages.BC} />
+				{
+					images()
+					/* {Object.keys(playerImages).map((key) => {
+          const src = playerImages[key];
+					return <img src={src} />;
+				})} */
+				}
 			</Carousel>
 		</Container>
 	);
