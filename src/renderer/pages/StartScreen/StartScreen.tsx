@@ -6,9 +6,9 @@ import { Container } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 import { playerImages, logo } from '../../images';
 
-const Image = ({ key, src }: { key: string; src: string }) => {
+const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 	return (
-		<img key={key} src={src} style={{ width: '100%', height: '100%' }} />
+		<img key={ImgKey} src={src} style={{ width: '100%', height: '100%' }} />
 	);
 };
 
@@ -33,10 +33,10 @@ export const StartScreen = () => {
 		}
 	}, [buttonPressed, navigate]);
 	const images = () => {
-		const holders = [<Image key="logo" src={logo} />];
+		const holders = [<Image ImgKey="logo" src={logo} />];
 		for (const key in playerImages) {
 			// @ts-ignore
-			holders.push(<Image key={key} src={logo} />);
+			holders.push(<Image ImgKey={key} src={logo} />);
 		}
 		return holders;
 	};
