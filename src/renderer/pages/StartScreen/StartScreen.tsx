@@ -33,10 +33,12 @@ export const StartScreen = () => {
 		}
 	}, [buttonPressed, navigate]);
 	const images = () => {
-		const holders = [<Image ImgKey="logo" src={logo} />];
+		const holders = [<Image key="logo" ImgKey="logo" src={logo} />];
 		for (const key in playerImages) {
-			// @ts-ignore
-			holders.push(<Image key={key} ImgKey={key} src={playerImages[key]} />);
+			holders.push(
+				// @ts-ignore
+				<Image key={key} ImgKey={key} src={playerImages[key]} />,
+			);
 		}
 		return holders;
 	};
