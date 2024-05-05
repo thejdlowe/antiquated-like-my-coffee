@@ -40,7 +40,7 @@ export const StartScreen = () => {
 				interval={6000}
 				autoPlay={true}
 				swipe={false}
-				animation="slide"
+				animation="fade"
 				duration={2000}
 				stopAutoPlayOnHover={false}
 			>
