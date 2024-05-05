@@ -3,13 +3,28 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich } from '../../consts';
 import { Container, Box, LinearProgress } from '@mui/material';
+import { PlayerColumn } from './components';
+import { data } from '../../data';
 
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
 	const { round } = useParams();
+	let playerData;
+	if (round === '1') {
+		playerData = data.show.Round1;
+	} else if (round === '2') {
+		playerData = data.show.Round2;
+	} else if (round === '3') {
+		playerData = data.show.Round3;
+	}
 	const maxTimeRemaining = 60 * 10; //Ten minutes
 	const [timeRemaining, setTimeRemaining] = useState(0);
-	const [gameRunning, setGameRunning] = useState(false);
+	const [gameRunning, setGameRunning] = useState(true);
+	const [canAcceptAnswers, setCanAcceptAnswers] = useState(true);
+	const [playerAnswering, setPlayerAnswering] = useState<number | null>(null);
+	const [playerOneScore, setPlayerOneScore] = useState<number>(0);
+	const [playerTwoScore, setPlayerTwoScore] = useState<number>(0);
+	const [playerThreeScore, setPlayerThreeScore] = useState<number>(0);
 
 	const parseTimer = useCallback(() => {
 		const minutes = Math.floor(timeRemaining / 60);
@@ -54,11 +69,62 @@ export const GameScreen = () => {
 			navigate('/');
 		}
 	}, [buttonPressed, navigate]);
+	useEffect(() => {
+		if (buttonPressed) {
+			if (canAcceptAnswers) {
+				if (
+					buttonPressed.whichController !==
+					whichControllerIsWhich.HOST
+				) {
+					setCanAcceptAnswers(false);
+					setPlayerAnswering(buttonPressed.whichController);
+				}
+			} else {
+				if (
+					buttonPressed.whichController ===
+					whichControllerIsWhich.HOST
+				) {
+					setCanAcceptAnswers(true);
+					setPlayerAnswering(null);
+				}
+			}
+		}
+	}, [buttonPressed, canAcceptAnswers]);
 	return (
 		<Container maxWidth={false}>
 			<Box>
+				<PlayerColumn
+					playerName={playerData ? playerData[0].displayName : ''}
+					backgroundColor="green"
+					score={playerOneScore}
+					isActive={
+						playerAnswering === whichControllerIsWhich.PLAYER_ONE
+					}
+				/>
+				<PlayerColumn
+					playerName={playerData ? playerData[1].displayName : ''}
+					backgroundColor="red"
+					score={playerTwoScore}
+					isActive={
+						playerAnswering === whichControllerIsWhich.PLAYER_TWO
+					}
+				/>
+				<PlayerColumn
+					playerName={playerData ? playerData[2].displayName : ''}
+					backgroundColor="yellow"
+					score={playerThreeScore}
+					isActive={
+						playerAnswering === whichControllerIsWhich.PLAYER_THREE
+					}
+				/>
+			</Box>
+			<Box>
 				<div>
-					WE ON GAME SCREEN {parseTimer()} {gameRunning + ''} {round}
+					Is Game Running: {gameRunning + ''}
+					<br />
+					Round: {round}
+					<br />
+					Can accept: {canAcceptAnswers}
 				</div>
 			</Box>
 			<Box>
