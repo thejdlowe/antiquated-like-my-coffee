@@ -7,7 +7,7 @@ import { Container, Box, LinearProgress } from '@mui/material';
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
 	const { round } = useParams();
-	const maxTimeRemaining = 60;
+	const maxTimeRemaining = 60 * 10; //Ten minutes
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [gameRunning, setGameRunning] = useState(false);
 
