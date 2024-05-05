@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich } from '../../consts';
-import { Container } from '@mui/material';
+import { Container, Box, LinearProgress } from '@mui/material';
 
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
@@ -56,9 +56,17 @@ export const GameScreen = () => {
 	}, [buttonPressed, navigate]);
 	return (
 		<Container maxWidth={false}>
-			<div>
-				WE ON GAME SCREEN {parseTimer()} {gameRunning + ''} {round}
-			</div>
+			<Box>
+				<div>
+					WE ON GAME SCREEN {parseTimer()} {gameRunning + ''} {round}
+				</div>
+			</Box>
+			<Box>
+				<LinearProgress
+					variant="determinate"
+					value={(timeRemaining / maxTimeRemaining) * 100}
+				/>
+			</Box>
 		</Container>
 	);
 };
