@@ -1,6 +1,7 @@
 export type PlayerType = {
 	displayName: string;
 	fullName: string;
+	imagePath: string;
 };
 
 export type RoundType = [PlayerType, PlayerType, PlayerType];
