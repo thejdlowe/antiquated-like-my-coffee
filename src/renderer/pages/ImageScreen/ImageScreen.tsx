@@ -7,7 +7,11 @@ import Carousel from 'react-material-ui-carousel';
 
 export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 	return (
-		<img key={ImgKey} src={src} style={{ width: '100%', height: '100%' }} />
+		<img
+			key={ImgKey}
+			src={src}
+			style={{ width: '100wh', height: '100vh' }}
+		/>
 	);
 };
 
@@ -35,7 +39,7 @@ export const ImageScreen = ({
 			navigate(`/game/:${id}`);
 		}
 	}, [buttonPressed, navigate]);
-	
+
 	let returner;
 	if (Array.isArray(children)) {
 		returner = (
@@ -53,25 +57,4 @@ export const ImageScreen = ({
 		);
 	} else returner = children;
 	return <Container maxWidth={false}>{returner}</Container>;
-	// return (
-	// 	<Container maxWidth={false}>
-	// 		<Carousel
-	// 			indicators={false}
-	// 			interval={10000}
-	// 			autoPlay={true}
-	// 			swipe={false}
-	// 			animation="fade"
-	// 			duration={2000}
-	// 			stopAutoPlayOnHover={false}
-	// 		>
-	// 			{
-	// 				images()
-	// 				/* {Object.keys(playerImages).map((key) => {
-	//       const src = playerImages[key];
-	// 				return <img src={src} />;
-	// 			})} */
-	// 			}
-	// 		</Carousel>
-	// 	</Container>
-	// );
 };

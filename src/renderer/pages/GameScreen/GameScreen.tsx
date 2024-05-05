@@ -2,10 +2,12 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich } from '../../consts';
+import { Container } from '@mui/material';
 
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
 	const { round } = useParams();
+	const maxTimeRemaining = 60;
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [gameRunning, setGameRunning] = useState(false);
 
@@ -30,7 +32,7 @@ export const GameScreen = () => {
 		console.log('Timer updated');
 	};
 	useEffect(() => {
-		setTimeRemaining(60);
+		setTimeRemaining(maxTimeRemaining);
 		setGameRunning(true);
 		const timerID = window.setInterval(() => {
 			updateTimer();
@@ -53,10 +55,10 @@ export const GameScreen = () => {
 		}
 	}, [buttonPressed, navigate]);
 	return (
-		<>
+		<Container maxWidth={false}>
 			<div>
 				WE ON GAME SCREEN {parseTimer()} {gameRunning + ''} {round}
 			</div>
-		</>
+		</Container>
 	);
 };
