@@ -4,7 +4,6 @@ import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
 import { Container } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
-import { playerImages, logo } from '../../images';
 
 export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 	return (
