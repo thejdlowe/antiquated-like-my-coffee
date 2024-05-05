@@ -38,7 +38,7 @@ export const StartScreen = () => {
 		<Container maxWidth={false}>
 			<Carousel
 				indicators={false}
-				interval={6000}
+				interval={10000}
 				autoPlay={true}
 				swipe={false}
 				animation="fade"
