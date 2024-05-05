@@ -29,7 +29,7 @@ export const StartScreen = () => {
 	const images = () => {
 		const holders = [];
 		for (const key in playerImages) {
-			holders.push(<img src={playerImages[key]} />);
+			holders.push(<img key={key} src={playerImages[key]} />);
 		}
 		return holders;
 	};
