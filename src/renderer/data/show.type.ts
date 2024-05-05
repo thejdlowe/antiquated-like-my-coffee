@@ -1,6 +1,7 @@
 export type PlayerType = {
 	displayName: string;
 	fullName: string;
+	pronouns: 'He/Him' | 'She/Her' | 'They/Them';
 	imagePath: string;
 };
 
