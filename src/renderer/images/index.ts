@@ -9,6 +9,7 @@ import Justin from './Justin.png';
 import Mark from './Mark.png';
 import Mike from './Mike.png';
 import Terrance from './Terrance.png';
+import Logo from './logo.png';
 
 export const playerImages = {
 	Alex,
@@ -23,3 +24,5 @@ export const playerImages = {
 	Mike,
 	Terrance,
 };
+
+export const logo = Logo;

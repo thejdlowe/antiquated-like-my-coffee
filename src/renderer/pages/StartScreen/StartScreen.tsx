@@ -4,7 +4,13 @@ import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
 import { Container } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
-import { playerImages } from '../../images';
+import { playerImages, logo } from '../../images';
+
+const Image = ({ key, src }: { key: string; src: string }) => {
+	return (
+		<img key={key} src={src} style={{ width: '100%', height: '100%' }} />
+	);
+};
 
 export const StartScreen = () => {
 	const { buttonPressed } = useAppContext();
@@ -27,10 +33,10 @@ export const StartScreen = () => {
 		}
 	}, [buttonPressed, navigate]);
 	const images = () => {
-		const holders = [];
+		const holders = [<Image key="logo" src={logo} />];
 		for (const key in playerImages) {
 			// @ts-ignore
-			holders.push(<img key={key} src={playerImages[key]} />);
+			holders.push(<Image key={key} src={logo} />);
 		}
 		return holders;
 	};
