@@ -36,7 +36,7 @@ export const ImageScreen = ({
 			if (buttonPressed.BButton) id = buttonsToWhichRound.B_BUTTON + '';
 			if (buttonPressed.XButton) id = buttonsToWhichRound.X_BUTTON + '';
 			if (buttonPressed.YButton) id = buttonsToWhichRound.Y_BUTTON + '';
-			navigate(`/game/:${id}`);
+			navigate(`/game/${id}`);
 		}
 	}, [buttonPressed, navigate]);
 
