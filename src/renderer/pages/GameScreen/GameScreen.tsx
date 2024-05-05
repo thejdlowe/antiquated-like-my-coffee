@@ -92,7 +92,13 @@ export const GameScreen = () => {
 	}, [buttonPressed, canAcceptAnswers]);
 	return (
 		<Container maxWidth={false}>
-			<Box sx={{ flexDirection: 'row' }}>
+			<Box
+				sx={{
+					display: 'flex',
+					flexDirection: 'row',
+					justifyContent: 'space-evenly',
+				}}
+			>
 				<PlayerColumn
 					playerName={playerData ? playerData[0].displayName : ''}
 					backgroundColor="green"
