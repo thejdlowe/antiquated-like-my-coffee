@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
+import { Container } from '@mui/material';
+import Carousel from 'react-material-ui-carousel';
+import { playerImages } from '../../images';
 
 export const StartScreen = () => {
 	const { buttonPressed } = useAppContext();
@@ -24,8 +27,18 @@ export const StartScreen = () => {
 		}
 	}, [buttonPressed, navigate]);
 	return (
-		<>
-			<div>TITLE SCREEN</div>
-		</>
+		<Container maxWidth={false}>
+			<Carousel
+				indicators={false}
+				interval={2000}
+				autoPlay={true}
+				swipe={false}
+				animation="slide"
+				duration={600}
+			>
+				<img src={playerImages.Alex} />
+				<img src={playerImages.BC} />
+			</Carousel>
+		</Container>
 	);
 };
