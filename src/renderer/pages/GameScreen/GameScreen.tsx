@@ -124,7 +124,9 @@ export const GameScreen = () => {
 					<br />
 					Round: {round}
 					<br />
-					Can accept: {canAcceptAnswers}
+					Can accept: {canAcceptAnswers + ''}
+					<br />
+					Who Is Talking: {playerAnswering + ''}
 				</div>
 			</Box>
 			<Box>
