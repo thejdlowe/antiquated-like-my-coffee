@@ -6,13 +6,17 @@ import { Container } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 import { playerImages, logo } from '../../images';
 
-const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
+export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 	return (
 		<img key={ImgKey} src={src} style={{ width: '100%', height: '100%' }} />
 	);
 };
 
-export const StartScreen = () => {
+export const ImageScreen = ({
+	children,
+}: {
+	children: React.ReactNode | React.ReactNode[];
+}) => {
 	const { buttonPressed } = useAppContext();
 	const navigate = useNavigate();
 	useEffect(() => {
@@ -32,18 +36,10 @@ export const StartScreen = () => {
 			navigate(`/game/:${id}`);
 		}
 	}, [buttonPressed, navigate]);
-	const images = () => {
-		const holders = [<Image key="logo" ImgKey="logo" src={logo} />];
-		for (const key in playerImages) {
-			holders.push(
-				// @ts-ignore
-				<Image key={key} ImgKey={key} src={playerImages[key]} />,
-			);
-		}
-		return holders;
-	};
-	return (
-		<Container maxWidth={false}>
+	
+	let returner;
+	if (Array.isArray(children)) {
+		returner = (
 			<Carousel
 				indicators={false}
 				interval={10000}
@@ -53,14 +49,30 @@ export const StartScreen = () => {
 				duration={2000}
 				stopAutoPlayOnHover={false}
 			>
-				{
-					images()
-					/* {Object.keys(playerImages).map((key) => {
-          const src = playerImages[key];
-					return <img src={src} />;
-				})} */
-				}
+				{children}
 			</Carousel>
-		</Container>
-	);
+		);
+	} else returner = children;
+	return <Container maxWidth={false}>{returner}</Container>;
+	// return (
+	// 	<Container maxWidth={false}>
+	// 		<Carousel
+	// 			indicators={false}
+	// 			interval={10000}
+	// 			autoPlay={true}
+	// 			swipe={false}
+	// 			animation="fade"
+	// 			duration={2000}
+	// 			stopAutoPlayOnHover={false}
+	// 		>
+	// 			{
+	// 				images()
+	// 				/* {Object.keys(playerImages).map((key) => {
+	//       const src = playerImages[key];
+	// 				return <img src={src} />;
+	// 			})} */
+	// 			}
+	// 		</Carousel>
+	// 	</Container>
+	// );
 };
