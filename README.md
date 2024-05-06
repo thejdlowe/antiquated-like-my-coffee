@@ -8,7 +8,7 @@ This is the software needed for the electron app that powers the Like My Coffee 
 
 ### Hardware
 
-1. A Raspberry Pi 5 or higher (The original prototype was made on a Raspberry Pi 3, and required a mouse to set the scores, plus did not have shut down or screensaver functionality; the code for that is at https://github.com/thejdlowe/like-my-coffee-scoreboard)
+1. A Raspberry Pi 5 or higher (The original prototype was made on a Raspberry Pi 3, and required a mouse to set the scores, plus did not have shut down or screensaver functionality; the code for that is at https://github.com/thejdlowe/prototype-like-my-coffee-scoreboard)
 2. An [X-Box 360 _Scene It?_ Infrared Receiver and corresponding controllers](https://en.wikipedia.org/wiki/Scene_It%3F_Lights,_Camera,_Action#Big_Button_Pad)
 
 ### Software
@@ -25,13 +25,13 @@ This is the software needed for the electron app that powers the Like My Coffee 
    * This means that WebUSB by itself is not an option, as even when running with `sudo` it doesn't detect. It only detects with legacy drivers, so keep that in mind.
    * This is why `xhost +` is in the start script; this is required for it to have access.
 2. You'll notice that electron is being run with `--disable-gpu-compositing`; this is not required if you have your Pi plugged into a monitor, but headless, there's a known issue with Electron.
+3. This still needs major style fixes
 
 ### Future thoughts
 
-I'd love to get a newer Raspberry Pi; the original goal was to write this in Electron and React, but trying to install that on a Raspberry Pi 3 was too taxing. Perhaps when I have room in my budget! Mayhaps, even!
+I'd love for this to have some better style fixes, plus a debug mode so if a mouse is there, the user can use that to play, instead of requiring the IR controllers.
 
-That's...that's it I believe! 
-
+I'd also love for this to support bluetooth instead! But that's for a different time.
 
 Below is the original ReadMe:
 
