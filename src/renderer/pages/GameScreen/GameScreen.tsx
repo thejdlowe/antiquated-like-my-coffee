@@ -122,6 +122,7 @@ export const GameScreen = () => {
 					isActive={
 						playerAnswering === whichControllerIsWhich.PLAYER_ONE
 					}
+					setActivePlayer={() => {setPlayerAnswering(whichControllerIsWhich.PLAYER_ONE)}}
 				/>
 				<PlayerColumn
 					playerNum={2}
@@ -132,6 +133,7 @@ export const GameScreen = () => {
 					isActive={
 						playerAnswering === whichControllerIsWhich.PLAYER_TWO
 					}
+					setActivePlayer={() => {setPlayerAnswering(whichControllerIsWhich.PLAYER_TWO)}}
 				/>
 				<PlayerColumn
 					playerNum={3}
@@ -142,6 +144,7 @@ export const GameScreen = () => {
 					isActive={
 						playerAnswering === whichControllerIsWhich.PLAYER_THREE
 					}
+					setActivePlayer={() => {setPlayerAnswering(whichControllerIsWhich.PLAYER_THREE)}}
 				/>
 			</Box>
 			{debugMode && (

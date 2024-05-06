@@ -6,6 +6,7 @@ export const PlayerColumn = ({
 	score,
 	isActive,
 	playerNum,
+	setActivePlayer
 }: {
 	playerName: string;
 	pronouns: string;
@@ -13,6 +14,7 @@ export const PlayerColumn = ({
 	score: number;
 	isActive: boolean;
 	playerNum: number;
+	setActivePlayer: any;
 }) => {
 	return (
 		<Box
@@ -24,7 +26,7 @@ export const PlayerColumn = ({
 			}}
 		>
             <center>
-			<h6>{playerNum + ''}</h6>
+			<h6 onClick={() => {setActivePlayer();}}>{playerNum + ''}</h6>
 			<h1>{playerName}</h1>
 			<h3>{pronouns}</h3>
 			

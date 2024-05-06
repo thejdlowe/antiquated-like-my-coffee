@@ -6,11 +6,13 @@ import { Container } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 
 export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
+	const navigate = useNavigate();
 	return (
 		<img
 			key={ImgKey}
 			src={src}
 			style={{ width: '100wh', height: '95vh' }}
+			onClick={() => {navigate("/game/1")}}
 		/>
 	);
 };
