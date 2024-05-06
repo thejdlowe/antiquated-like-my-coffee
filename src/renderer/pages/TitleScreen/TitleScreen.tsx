@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Image, ImageScreen } from '../ImageScreen';
-import { logo } from '../../images';
+import { logo } from '../../media';
 import { useNavigate } from 'react-router-dom';
 
 export const TitleScreen = () => {

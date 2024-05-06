@@ -1,5 +1,5 @@
 import { ShowType } from '../show.type';
-import { playerImages } from '../../images';
+import { playerImages } from '../../media';
 export const show: ShowType = {
 	Round1: [
 		{

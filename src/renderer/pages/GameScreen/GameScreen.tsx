@@ -5,7 +5,7 @@ import { whichControllerIsWhich } from '../../consts';
 import { Container, Box, LinearProgress } from '@mui/material';
 import { PlayerColumn } from './components';
 import { data } from '../../data';
-
+import LMCFont from './media/RadioCanadaBig-VariableFont_wght.ttf';
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
 	const { round } = useParams();
@@ -90,7 +90,10 @@ export const GameScreen = () => {
 		}
 	}, [buttonPressed, canAcceptAnswers]);
 	return (
-		<Container maxWidth={false} sx={{ position: 'relative' }}>
+		<Container
+			maxWidth={false}
+			sx={{ position: 'relative', font: LMCFont }}
+		>
 			<Box
 				sx={{
 					display: 'flex',

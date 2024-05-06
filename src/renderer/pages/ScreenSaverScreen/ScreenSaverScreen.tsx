@@ -1,5 +1,5 @@
 import { Image, ImageScreen } from '../ImageScreen';
-import { playerImages } from '../../images';
+import { playerImages } from '../../media';
 
 export const ScreenSaverScreen = () => {
 	const images = () => {
