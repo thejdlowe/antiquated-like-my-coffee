@@ -104,7 +104,7 @@ export const GameScreen = () => {
 					playerNum={1}
 					playerName={playerData ? playerData[0].displayName : ''}
 					pronouns={playerData ? playerData[0].pronouns : ''}
-					backgroundColor="green"
+					backgroundColor="#3cdb4e"
 					score={playerOneScore}
 					isActive={
 						playerAnswering === whichControllerIsWhich.PLAYER_ONE
@@ -114,7 +114,7 @@ export const GameScreen = () => {
 					playerNum={2}
 					playerName={playerData ? playerData[1].displayName : ''}
 					pronouns={playerData ? playerData[1].pronouns : ''}
-					backgroundColor="red"
+					backgroundColor="#d04242"
 					score={playerTwoScore}
 					isActive={
 						playerAnswering === whichControllerIsWhich.PLAYER_TWO
@@ -124,7 +124,7 @@ export const GameScreen = () => {
 					playerNum={3}
 					playerName={playerData ? playerData[2].displayName : ''}
 					pronouns={playerData ? playerData[2].pronouns : ''}
-					backgroundColor="yellow"
+					backgroundColor="#ecdb33"
 					score={playerThreeScore}
 					isActive={
 						playerAnswering === whichControllerIsWhich.PLAYER_THREE
