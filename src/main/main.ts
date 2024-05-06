@@ -92,7 +92,8 @@ const createWindow = async () => {
 			mainWindow.minimize();
 		} else {
 			mainWindow.show();
-			mainWindow.maximize();
+			//mainWindow.maximize();
+			mainWindow.setFullScreen(true);
 		}
 	});
 
