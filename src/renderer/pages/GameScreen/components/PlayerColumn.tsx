@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 export const PlayerColumn = ({
 	playerName,
 	pronouns,
@@ -26,11 +26,11 @@ export const PlayerColumn = ({
 			}}
 		>
             <center>
-			<h6 onClick={() => {setActivePlayer();}}>{playerNum + ''}</h6>
-			<h1>{playerName}</h1>
-			<h3>{pronouns}</h3>
-			
-			<h2>{score}</h2>
+			<Typography onClick={() => {setActivePlayer();}} variant="h6">{playerNum + ''}</Typography>
+			<Typography variant="h1">{playerName}</Typography>
+			<Typography variant="h3">{pronouns}</Typography>
+			<br />
+			<Typography variant="h2">{score}</Typography>
             </center>
 		</Box>
 	);
