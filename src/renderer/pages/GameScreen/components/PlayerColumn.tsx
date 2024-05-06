@@ -20,14 +20,14 @@ export const PlayerColumn = ({
 				width: '33%',
 				transition: 'background 1s ease',
 				backgroundColor: isActive ? backgroundColor : 'white',
+				alignContent: 'center',
 			}}
 		>
-			<Box>{playerNum + ''}</Box>
-			<Box>{playerName}</Box>
-			<Box>{pronouns}</Box>
-			<Box>{backgroundColor}</Box>
-			<Box>{score}</Box>
-			<Box>{isActive + ''}</Box>
+			<h6>{playerNum + ''}</h6>
+			<h1>{playerName}</h1>
+			<h3>{pronouns}</h3>
+			
+			<h2>{score}</h2>
 		</Box>
 	);
 };
