@@ -44,7 +44,6 @@ export const GameScreen = () => {
 			}
 			return count - 1;
 		});
-		console.log('Timer updated');
 	};
 	useEffect(() => {
 		setTimeRemaining(maxTimeRemaining);
@@ -140,6 +139,8 @@ export const GameScreen = () => {
 					Can accept: {canAcceptAnswers + ''}
 					<br />
 					Who Is Talking: {playerAnswering + ''}
+					<br />
+					Time Remaining: {parseTimer()}
 				</div>
 			</Box>
 			<Box>
