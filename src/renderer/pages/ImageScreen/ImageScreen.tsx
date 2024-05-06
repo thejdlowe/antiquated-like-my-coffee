@@ -12,7 +12,9 @@ export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 			key={ImgKey}
 			src={src}
 			style={{ width: '100wh', height: '95vh' }}
-			onClick={() => {navigate("/game/1")}}
+			onClick={(evt) => {
+				evt.preventDefault();
+				navigate("/game/1")}}
 		/>
 	);
 };
