@@ -36,7 +36,7 @@ ipcMain.on('ipc-example', async (event, arg) => {
 ipcMain.on('shutdown', async (evt, arg) => {
 	shutdown.shutdown({
 		force: true,
-		timerseconds: 5,
+		timerseconds: 1,
 		sudo: true,
 		debug: false,
 		quitapp: false,
