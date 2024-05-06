@@ -10,7 +10,7 @@ export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 		<img
 			key={ImgKey}
 			src={src}
-			style={{ width: '100wh', height: '100vh' }}
+			style={{ width: '100wh', height: '95vh' }}
 		/>
 	);
 };
