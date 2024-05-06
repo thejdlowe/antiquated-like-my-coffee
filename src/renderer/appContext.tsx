@@ -37,7 +37,6 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 	children,
 }) => {
 	const navigate = useNavigate();
-	const [shuttingDown, setShuttingDown] = useState(false);
 	const [buttonPressed, setButtonPressed] = useState<ButtonPressedProps>({
 		whichController: 0,
 		startButton: false,
@@ -63,11 +62,8 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 			buttonPressed.startButton &&
 			buttonPressed.backButton
 		) {
-			if (!shuttingDown) {
-				setShuttingDown(true);
-				window.electron.ipcRenderer.sendMessage('shutdown');
-				navigate('/shutdown');
-			}
+			window.electron.ipcRenderer.sendMessage('shutdown');
+			navigate('/shutdown');
 		}
 	}, [buttonPressed]);
 
