@@ -92,9 +92,7 @@ const createWindow = async () => {
 			mainWindow.minimize();
 		} else {
 			mainWindow.show();
-			// mainWindow.webContents.setDevToolsWebContents(
-			// 	mainWindow.webContents,
-			// );
+			mainWindow.maximize();
 		}
 	});
 
