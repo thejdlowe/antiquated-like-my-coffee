@@ -110,7 +110,7 @@ export const GameScreen = () => {
 					flexDirection: 'row',
 					justifyContent: 'space-evenly',
 					width: '100%',
-					height: '75vh',
+					height: '85vh',
 				}}
 			>
 				<PlayerColumn
@@ -159,7 +159,6 @@ export const GameScreen = () => {
 					</div>
 				</Box>
 			)}
-
 			<Box>
 				<LinearProgress
 					variant="determinate"
