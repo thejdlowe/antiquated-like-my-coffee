@@ -15,6 +15,7 @@ import log from 'electron-log';
 import { initiateIRReceiver } from './IRDetection';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+const shutdown = require('electron-shutdown-command');
 
 class AppUpdater {
 	constructor() {
@@ -30,6 +31,16 @@ ipcMain.on('ipc-example', async (event, arg) => {
 	const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
 	console.log(msgTemplate(arg));
 	event.reply('ipc-example', msgTemplate('pong'));
+});
+
+ipcMain.on('shutdown', async (evt, arg) => {
+	shutdown.shutdown({
+		force: true,
+		timerseconds: 5,
+		sudo: true,
+		debug: false,
+		quitapp: false,
+	});
 });
 
 if (process.env.NODE_ENV === 'production') {

@@ -51,7 +51,6 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 
 	useEffect(() => {
 		window.electronAPI.onButtonUpdate((value: ButtonPressedProps) => {
-			console.log(value);
 			setButtonPressed(value);
 		});
 	}, []);
@@ -63,6 +62,7 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 			buttonPressed.startButton &&
 			buttonPressed.backButton
 		) {
+            window.electron.ipcRenderer.sendMessage("shutdown")
 			navigate('/shutdown');
 		}
 	}, [buttonPressed]);
