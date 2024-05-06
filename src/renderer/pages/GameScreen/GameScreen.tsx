@@ -84,6 +84,18 @@ export const GameScreen = () => {
 					buttonPressed.whichController ===
 					whichControllerIsWhich.HOST
 				) {
+					let score = 0;
+
+					if (buttonPressed.AButton) score = 3;
+					if (buttonPressed.BButton) score = 2;
+					if (buttonPressed.XButton) score = 1;
+					if (buttonPressed.YButton) score = 0;
+					if (playerAnswering === whichControllerIsWhich.PLAYER_ONE)
+						setPlayerOneScore((prev) => prev + score);
+					if (playerAnswering === whichControllerIsWhich.PLAYER_TWO)
+						setPlayerTwoScore((prev) => prev + score);
+					if (playerAnswering === whichControllerIsWhich.PLAYER_THREE)
+						setPlayerThreeScore((prev) => prev + score);
 					setCanAcceptAnswers(true);
 					setPlayerAnswering(null);
 				}
