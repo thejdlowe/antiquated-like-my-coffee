@@ -90,13 +90,14 @@ export const GameScreen = () => {
 		}
 	}, [buttonPressed, canAcceptAnswers]);
 	return (
-		<Container maxWidth={false}>
+		<Container maxWidth={false} sx={{ position: 'relative' }}>
 			<Box
 				sx={{
 					display: 'flex',
 					flexDirection: 'row',
 					justifyContent: 'space-evenly',
 					width: '100%',
+					height: '70vh',
 				}}
 			>
 				<PlayerColumn
@@ -143,7 +144,7 @@ export const GameScreen = () => {
 					Time Remaining: {parseTimer()}
 				</div>
 			</Box>
-			<Box sx={{ position: 'fixed', bottom: 0, left: 0 }}>
+			<Box>
 				<LinearProgress
 					variant="determinate"
 					value={(timeRemaining / maxTimeRemaining) * 100}
