@@ -101,7 +101,9 @@ export const GameScreen = () => {
 				}}
 			>
 				<PlayerColumn
+					playerNum={1}
 					playerName={playerData ? playerData[0].displayName : ''}
+					pronouns={playerData ? playerData[0].pronouns : ''}
 					backgroundColor="green"
 					score={playerOneScore}
 					isActive={
@@ -109,7 +111,9 @@ export const GameScreen = () => {
 					}
 				/>
 				<PlayerColumn
+					playerNum={2}
 					playerName={playerData ? playerData[1].displayName : ''}
+					pronouns={playerData ? playerData[1].pronouns : ''}
 					backgroundColor="red"
 					score={playerTwoScore}
 					isActive={
@@ -117,7 +121,9 @@ export const GameScreen = () => {
 					}
 				/>
 				<PlayerColumn
+					playerNum={3}
 					playerName={playerData ? playerData[2].displayName : ''}
+					pronouns={playerData ? playerData[2].pronouns : ''}
 					backgroundColor="yellow"
 					score={playerThreeScore}
 					isActive={
