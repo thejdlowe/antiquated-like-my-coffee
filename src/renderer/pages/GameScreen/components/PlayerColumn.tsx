@@ -11,11 +11,11 @@ export const PlayerColumn = ({
 	isActive: boolean;
 }) => {
 	return (
-		<Box >
+		<Box sx={{ width: '33%' }}>
 			<Box>{playerName}</Box>
 			<Box>{backgroundColor}</Box>
 			<Box>{score}</Box>
-			<Box>{isActive + ""}</Box>
+			<Box>{isActive + ''}</Box>
 		</Box>
 	);
 };
