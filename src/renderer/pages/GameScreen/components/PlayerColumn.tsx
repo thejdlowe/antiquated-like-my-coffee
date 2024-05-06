@@ -23,11 +23,13 @@ export const PlayerColumn = ({
 				alignContent: 'center',
 			}}
 		>
+            <center>
 			<h6>{playerNum + ''}</h6>
 			<h1>{playerName}</h1>
 			<h3>{pronouns}</h3>
 			
 			<h2>{score}</h2>
+            </center>
 		</Box>
 	);
 };

@@ -25,6 +25,7 @@ export const GameScreen = () => {
 	const [playerOneScore, setPlayerOneScore] = useState<number>(0);
 	const [playerTwoScore, setPlayerTwoScore] = useState<number>(0);
 	const [playerThreeScore, setPlayerThreeScore] = useState<number>(0);
+	const [debugMode, setDebugMode] = useState<boolean>(false);
 
 	const parseTimer = useCallback(() => {
 		const minutes = Math.floor(timeRemaining / 60);
@@ -90,9 +91,7 @@ export const GameScreen = () => {
 		}
 	}, [buttonPressed, canAcceptAnswers]);
 	return (
-		<Container
-			maxWidth={false}
-		>
+		<Container maxWidth={false}>
 			<Box
 				sx={{
 					display: 'flex',
@@ -133,19 +132,22 @@ export const GameScreen = () => {
 					}
 				/>
 			</Box>
-			<Box>
-				<div>
-					Is Game Running: {gameRunning + ''}
-					<br />
-					Round: {round}
-					<br />
-					Can accept: {canAcceptAnswers + ''}
-					<br />
-					Who Is Talking: {playerAnswering + ''}
-					<br />
-					Time Remaining: {parseTimer()}
-				</div>
-			</Box>
+			{debugMode && (
+				<Box>
+					<div>
+						Is Game Running: {gameRunning + ''}
+						<br />
+						Round: {round}
+						<br />
+						Can accept: {canAcceptAnswers + ''}
+						<br />
+						Who Is Talking: {playerAnswering + ''}
+						<br />
+						Time Remaining: {parseTimer()}
+					</div>
+				</Box>
+			)}
+
 			<Box>
 				<LinearProgress
 					variant="determinate"
