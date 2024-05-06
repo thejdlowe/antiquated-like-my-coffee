@@ -8,7 +8,7 @@ This is the software needed for the electron app that powers the Like My Coffee 
 
 ### Hardware
 
-1. A Raspberry Pi 3 or higher (I happened to have a 3 to spare; it SHOULD work without any issues otherwise?)
+1. A Raspberry Pi 5 or higher (The original prototype was made on a Raspberry Pi 3, and required a mouse to set the scores, plus did not have shut down or screensaver functionality; the code for that is at https://github.com/thejdlowe/like-my-coffee-scoreboard)
 2. An [X-Box 360 _Scene It?_ Infrared Receiver and corresponding controllers](https://en.wikipedia.org/wiki/Scene_It%3F_Lights,_Camera,_Action#Big_Button_Pad)
 
 ### Software
