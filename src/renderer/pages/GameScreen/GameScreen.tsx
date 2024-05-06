@@ -143,7 +143,7 @@ export const GameScreen = () => {
 					Time Remaining: {parseTimer()}
 				</div>
 			</Box>
-			<Box sx={{ position: 'absolute', bottom: 0, left: 0 }}>
+			<Box sx={{ position: 'fixed', bottom: 0, left: 0 }}>
 				<LinearProgress
 					variant="determinate"
 					value={(timeRemaining / maxTimeRemaining) * 100}
