@@ -35,10 +35,10 @@ export const PlayerColumn = ({
 				>
 					Player {playerNum + ''}
 				</Typography>
-				<Typography variant="h1">{playerName}</Typography>
-				<Typography variant="subtitle1">{pronouns}</Typography>
+				<Typography variant="h2">{playerName}</Typography>
+				<Typography variant="subtitle2">{pronouns}</Typography>
 				<br />
-				<Typography variant="h2">{score}</Typography>
+				<Typography variant="h3">{score}</Typography>
 			</center>
 		</Box>
 	);
