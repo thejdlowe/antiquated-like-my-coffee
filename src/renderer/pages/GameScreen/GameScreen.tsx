@@ -98,7 +98,7 @@ export const GameScreen = () => {
 					flexDirection: 'row',
 					justifyContent: 'space-evenly',
 					width: '100%',
-					height: '70vh',
+					height: '75vh',
 				}}
 			>
 				<PlayerColumn
