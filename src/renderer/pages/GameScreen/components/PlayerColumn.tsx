@@ -6,7 +6,7 @@ export const PlayerColumn = ({
 	score,
 	isActive,
 	playerNum,
-	setActivePlayer
+	setActivePlayer,
 }: {
 	playerName: string;
 	pronouns: string;
@@ -25,13 +25,21 @@ export const PlayerColumn = ({
 				alignContent: 'center',
 			}}
 		>
-            <center>
-			<Typography onClick={(evt) => {evt.preventDefault();setActivePlayer();}} variant="h6">{playerNum + ''}</Typography>
-			<Typography variant="h1">{playerName}</Typography>
-			<Typography variant="h3">{pronouns}</Typography>
-			<br />
-			<Typography variant="h2">{score}</Typography>
-            </center>
+			<center>
+				<Typography
+					onClick={(evt) => {
+						evt.preventDefault();
+						setActivePlayer();
+					}}
+					variant="h6"
+				>
+					Player {playerNum + ''}
+				</Typography>
+				<Typography variant="h1">{playerName}</Typography>
+				<Typography variant="subtitle1">{pronouns}</Typography>
+				<br />
+				<Typography variant="h2">{score}</Typography>
+			</center>
 		</Box>
 	);
 };
