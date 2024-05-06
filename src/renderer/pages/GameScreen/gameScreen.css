@@ -1,8 +1,9 @@
 @font-face {
 	font-family: 'Radio';
-	src: url('../../media/RadioCanadaBig-VariableFont_wght.ttf') format('ttf');
+	src: url('../../media/RadioCanadaBig-VariableFont_wght.ttf')
+		format('truetype');
 }
 
 * {
-	font-family: 'Radio';
+	font-family: Radio;
 }
