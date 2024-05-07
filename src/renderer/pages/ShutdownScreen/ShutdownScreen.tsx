@@ -1,4 +1,5 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
+import { Typography } from '@mui/material';
 
 export const ShutdownScreen = () => {
 	const [timeRemaining, setTimeRemaining] = useState(0);
@@ -21,7 +22,9 @@ export const ShutdownScreen = () => {
 	}, []);
 	return (
 		<>
-			<div>This application will shut down in {parseTimer()}</div>
+			<Typography variant="h1">
+				This application will shut down in {parseTimer()}
+			</Typography>
 		</>
 	);
 };
