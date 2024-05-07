@@ -5,7 +5,7 @@ import { whichControllerIsWhich } from '../../consts';
 import { Container, Box, LinearProgress } from '@mui/material';
 import { PlayerColumn } from './components';
 import { data } from '../../data';
-import './gameScreen.css';
+
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
 	const { round } = useParams();
@@ -122,7 +122,9 @@ export const GameScreen = () => {
 					isActive={
 						playerAnswering === whichControllerIsWhich.PLAYER_ONE
 					}
-					setActivePlayer={() => {setPlayerAnswering(whichControllerIsWhich.PLAYER_ONE)}}
+					setActivePlayer={() => {
+						setPlayerAnswering(whichControllerIsWhich.PLAYER_ONE);
+					}}
 				/>
 				<PlayerColumn
 					playerNum={2}
@@ -133,7 +135,9 @@ export const GameScreen = () => {
 					isActive={
 						playerAnswering === whichControllerIsWhich.PLAYER_TWO
 					}
-					setActivePlayer={() => {setPlayerAnswering(whichControllerIsWhich.PLAYER_TWO)}}
+					setActivePlayer={() => {
+						setPlayerAnswering(whichControllerIsWhich.PLAYER_TWO);
+					}}
 				/>
 				<PlayerColumn
 					playerNum={3}
@@ -144,7 +148,9 @@ export const GameScreen = () => {
 					isActive={
 						playerAnswering === whichControllerIsWhich.PLAYER_THREE
 					}
-					setActivePlayer={() => {setPlayerAnswering(whichControllerIsWhich.PLAYER_THREE)}}
+					setActivePlayer={() => {
+						setPlayerAnswering(whichControllerIsWhich.PLAYER_THREE);
+					}}
 				/>
 			</Box>
 			{debugMode && (
