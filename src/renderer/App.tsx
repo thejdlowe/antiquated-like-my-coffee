@@ -7,7 +7,7 @@ import {
 } from './pages';
 import { AppContextProvider } from './appContext';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
-import { Radio } from './media/RadioCanadaBig-VariableFont_wght.ttf';
+import Radio from './media/RadioCanadaBig-VariableFont_wght.ttf';
 
 const theme = createTheme({
 	typography: {
