@@ -8,12 +8,13 @@ import {
 import { AppContextProvider } from './appContext';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 import Radio from './media/RadioCanadaBig-VariableFont_wght.ttf';
+//import './App.css';
 
 const theme = createTheme({
 	typography: {
 		fontFamily: 'Radio',
 		h1: {
-			fontSize: `6.4rem`,
+			fontSize: `11.4rem`,
 		},
 		h2: {
 			fontSize: `5.4rem`,
@@ -25,10 +26,10 @@ const theme = createTheme({
 			fontSize: `3.4rem`,
 		},
 		h5: {
-			fontSize: `2.4rem`,
+			fontSize: `1.55rem`,
 		},
 		h6: {
-			fontSize: `1.4rem`,
+			fontSize: `1.0rem`,
 		},
 	},
 	components: {
