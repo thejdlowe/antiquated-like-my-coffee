@@ -102,6 +102,12 @@ export const GameScreen = () => {
 			}
 		}
 	}, [buttonPressed, canAcceptAnswers]);
+
+  useEffect(() => {
+    if(round === "4") {
+      navigate("/finalRound")
+    }
+  }, [round]);
 	return (
 		<Container maxWidth={false}>
 			<Box

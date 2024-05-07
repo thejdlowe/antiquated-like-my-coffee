@@ -4,6 +4,7 @@ import {
 	ShutdownScreen,
 	TitleScreen,
 	ScreenSaverScreen,
+	FinalRoundScreen,
 } from './pages';
 import { AppContextProvider } from './appContext';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
@@ -58,6 +59,10 @@ export default function App() {
 						/>
 						<Route path="/game/:round" element={<GameScreen />} />
 						<Route path="/shutdown" element={<ShutdownScreen />} />
+						<Route
+							path="/finalRound"
+							element={<FinalRoundScreen />}
+						/>
 					</Routes>
 				</AppContextProvider>
 			</ThemeProvider>
