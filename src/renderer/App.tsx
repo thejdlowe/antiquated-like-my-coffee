@@ -18,7 +18,7 @@ import Radio from './media/RadioCanadaBig-VariableFont_wght.ttf';
 
 let theme = createTheme({
 	typography: {
-		fontFamily: 'Radio Canada Big Bold',
+		fontFamily: '"Radio Canada Big Bold"',
 	},
 	// components: {
 	// 	MuiCssBaseline: {

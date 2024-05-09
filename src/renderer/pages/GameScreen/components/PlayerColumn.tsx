@@ -29,7 +29,7 @@ export const PlayerColumn = ({
 			}}
 		>
 			<Grid
-				item
+				container
 				direction="column"
 				alignItems="center"
 				justifyContent="center"
