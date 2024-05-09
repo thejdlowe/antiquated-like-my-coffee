@@ -7,32 +7,16 @@ import {
 	FinalRoundScreen,
 } from './pages';
 import { AppContextProvider } from './appContext';
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import {
+	createTheme,
+	responsiveFontSizes,
+	ThemeProvider,
+	CssBaseline,
+} from '@mui/material';
 import Radio from './media/RadioCanadaBig-VariableFont_wght.ttf';
 //import './App.css';
 
-const theme = createTheme({
-	typography: {
-		fontFamily: 'Radio',
-		h1: {
-			fontSize: `11.4rem`,
-		},
-		h2: {
-			fontSize: `5.4rem`,
-		},
-		h3: {
-			fontSize: `4.4rem`,
-		},
-		h4: {
-			fontSize: `3.4rem`,
-		},
-		h5: {
-			fontSize: `1.55rem`,
-		},
-		h6: {
-			fontSize: `1.0rem`,
-		},
-	},
+let theme = createTheme({
 	components: {
 		MuiCssBaseline: {
 			styleOverrides: `
@@ -44,6 +28,7 @@ const theme = createTheme({
 		},
 	},
 });
+theme = responsiveFontSizes(theme);
 
 export default function App() {
 	return (
