@@ -22,7 +22,11 @@ export const PlayerColumn = ({
 			direction="column"
 			alignItems="center"
 			justifyContent="center"
-			style={{ minHeight: '100vh' }}
+			style={{
+				minHeight: '100vh',
+				transition: 'background 1s ease',
+				backgroundColor: isActive ? backgroundColor : 'white',
+			}}
 		>
 			<Grid
 				item
@@ -31,11 +35,12 @@ export const PlayerColumn = ({
 				justifyContent="center"
 				style={{ minHeight: '33vh' }}
 			>
-				<Typography variant="h1">Player {playerNum + ''}</Typography>
+				<Typography variant="h2">Player {playerNum + ''}</Typography>
 				<Typography variant="h1">{playerName}</Typography>
+				<Typography variant="h3">{pronouns}</Typography>
 			</Grid>
 			<Grid item style={{ minHeight: '66vh' }}>
-				{score}
+				<Typography variant="h1">{score}</Typography>
 			</Grid>
 		</Grid>
 		// <Box

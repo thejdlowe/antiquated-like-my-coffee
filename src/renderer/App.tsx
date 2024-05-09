@@ -17,16 +17,19 @@ import Radio from './media/RadioCanadaBig-VariableFont_wght.ttf';
 //import './App.css';
 
 let theme = createTheme({
-	components: {
-		MuiCssBaseline: {
-			styleOverrides: `
-				@font-face {
-					font-family: 'Radio';
-					src: url(${Radio}) format=('truetype');
-				}
-			`,
-		},
+	typography: {
+		fontFamily: 'Radio Canada Big Bold',
 	},
+	// components: {
+	// 	MuiCssBaseline: {
+	// 		styleOverrides: `
+	// 			@font-face {
+	// 				font-family: 'Radio';
+	// 				src: url(${Radio}) format=('truetype');
+	// 			}
+	// 		`,
+	// 	},
+	// },
 });
 theme = responsiveFontSizes(theme);
 
