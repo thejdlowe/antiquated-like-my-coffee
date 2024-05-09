@@ -25,7 +25,7 @@ export const PlayerColumn = ({
 			style={{ minHeight: '100vh' }}
 		>
 			<Grid item style={{ minHeight: '33vh' }}>
-				Test me
+				<Typography variant="h1">Try me</Typography>
 			</Grid>
 			<Grid item style={{ minHeight: '66vh' }}>
 				And me
