@@ -24,11 +24,18 @@ export const PlayerColumn = ({
 			justifyContent="center"
 			style={{ minHeight: '100vh' }}
 		>
-			<Grid item style={{ minHeight: '33vh' }}>
-				<Typography variant="h1">Try me</Typography>
+			<Grid
+				item
+				direction="column"
+				alignItems="center"
+				justifyContent="center"
+				style={{ minHeight: '33vh' }}
+			>
+				<Typography variant="h1">Player {playerNum + ''}</Typography>
+				<Typography variant="h1">{playerName}</Typography>
 			</Grid>
 			<Grid item style={{ minHeight: '66vh' }}>
-				And me
+				{score}
 			</Grid>
 		</Grid>
 		// <Box
