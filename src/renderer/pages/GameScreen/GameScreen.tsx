@@ -17,7 +17,7 @@ export const GameScreen = () => {
 	} else if (round === '3') {
 		playerData = data.show.Round3;
 	}
-	const maxTimeRemaining = 60 * 10; //Ten minutes
+	const maxTimeRemaining = 60 * 0.5; //Ten minutes
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [progressBarColor, setProgressBarColor] = useState('green');
 	const [gameRunning, setGameRunning] = useState(true);
@@ -103,6 +103,15 @@ export const GameScreen = () => {
 			}
 		}
 	}, [buttonPressed, canAcceptAnswers]);
+
+	useEffect(() => {
+		const percentageTime = (timeRemaining / maxTimeRemaining) * 100;
+		if (percentageTime <= 33) {
+			setProgressBarColor('red');
+		} else if (percentageTime <= 66) {
+			setProgressBarColor('yellow');
+		}
+	}, [timeRemaining, setProgressBarColor]);
 
 	useEffect(() => {
 		if (round === '4') {
