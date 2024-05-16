@@ -180,8 +180,9 @@ export const GameScreen = () => {
 					variant="determinate"
 					value={(timeRemaining / maxTimeRemaining) * 100}
 					sx={{
-						backgroundColor: progressBarColor,
-						color: 'pink',
+						'& .MuiLinearProgress-bar': {
+							backgroundColor: progressBarColor,
+						},
 					}}
 				/>
 			</Box>
