@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
 import { Container } from '@mui/material';
+import { DebugControllers } from '../components';
 import Carousel from 'react-material-ui-carousel';
 
 export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
@@ -14,7 +15,8 @@ export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 			style={{ width: '100wh', height: '95vh' }}
 			onClick={(evt) => {
 				evt.preventDefault();
-				navigate("/game/1")}}
+				navigate('/game/1');
+			}}
 		/>
 	);
 };
@@ -60,5 +62,9 @@ export const ImageScreen = ({
 			</Carousel>
 		);
 	} else returner = children;
-	return <Container maxWidth={false}>{returner}</Container>;
+	return (
+		<DebugControllers>
+			<Container maxWidth={false}>{returner}</Container>
+		</DebugControllers>
+	);
 };

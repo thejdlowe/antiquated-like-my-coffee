@@ -19,6 +19,7 @@ export const GameScreen = () => {
 	}
 	const maxTimeRemaining = 60 * 10; //Ten minutes
 	const [timeRemaining, setTimeRemaining] = useState(0);
+	const [progressBarColor, setProgressBarColor] = useState('green');
 	const [gameRunning, setGameRunning] = useState(true);
 	const [canAcceptAnswers, setCanAcceptAnswers] = useState(true);
 	const [playerAnswering, setPlayerAnswering] = useState<number | null>(null);
@@ -103,11 +104,11 @@ export const GameScreen = () => {
 		}
 	}, [buttonPressed, canAcceptAnswers]);
 
-  useEffect(() => {
-    if(round === "4") {
-      navigate("/finalRound")
-    }
-  }, [round]);
+	useEffect(() => {
+		if (round === '4') {
+			navigate('/finalRound');
+		}
+	}, [round]);
 	return (
 		<Container maxWidth={false}>
 			<Box
@@ -178,6 +179,10 @@ export const GameScreen = () => {
 				<LinearProgress
 					variant="determinate"
 					value={(timeRemaining / maxTimeRemaining) * 100}
+					sx={{
+						backgroundColor: progressBarColor,
+						color: 'pink',
+					}}
 				/>
 			</Box>
 		</Container>
