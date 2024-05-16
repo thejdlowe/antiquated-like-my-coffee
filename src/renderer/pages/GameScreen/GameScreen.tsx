@@ -106,6 +106,7 @@ export const GameScreen = () => {
 
 	useEffect(() => {
 		const percentageTime = (timeRemaining / maxTimeRemaining) * 100;
+		console.log(percentageTime);
 		if (percentageTime <= 33) {
 			setProgressBarColor('red');
 		} else if (percentageTime <= 66) {
