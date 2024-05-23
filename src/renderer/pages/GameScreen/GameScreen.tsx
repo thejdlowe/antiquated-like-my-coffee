@@ -61,15 +61,7 @@ export const GameScreen = () => {
 
 	const { buttonPressed } = useAppContext();
 	const navigate = useNavigate();
-	useEffect(() => {
-		if (
-			buttonPressed &&
-			buttonPressed.whichController == whichControllerIsWhich.HOST &&
-			buttonPressed.XboxButton
-		) {
-			navigate('/');
-		}
-	}, [buttonPressed, navigate]);
+	
 	useEffect(() => {
 		if (buttonPressed) {
 			if (canAcceptAnswers) {

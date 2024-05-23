@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { whichControllerIsWhich } from './consts';
 
 interface AppContextProviderProps {
@@ -37,6 +37,8 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 	children,
 }) => {
 	const navigate = useNavigate();
+	const location = useLocation();
+	const { pathname } = location;
 	const [shuttingDown, setShuttingDown] = useState(false);
 	const [buttonPressed, setButtonPressed] = useState<ButtonPressedProps>({
 		whichController: 0,
@@ -70,6 +72,17 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 			}
 		}
 	}, [buttonPressed, shuttingDown, setShuttingDown]);
+
+	useEffect(() => {
+		if (
+			buttonPressed &&
+			buttonPressed.whichController == whichControllerIsWhich.HOST &&
+			buttonPressed.XboxButton &&
+			pathname !== "/shutdown"
+		) {
+			navigate('/');
+		}
+	}, [buttonPressed, navigate]);
 
 	return (
 		<AppContext.Provider value={{ buttonPressed }}>
