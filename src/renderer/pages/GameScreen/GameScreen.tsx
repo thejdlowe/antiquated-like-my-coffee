@@ -10,14 +10,19 @@ export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
 	const { round } = useParams();
 	let playerData;
+	let currentMiniGame;
 	if (round === '1') {
 		playerData = data.show.Round1.players;
+		currentMiniGame = data.show.Round1.minigame;
 	} else if (round === '2') {
 		playerData = data.show.Round2.players;
+		currentMiniGame = data.show.Round2.minigame;
 	} else if (round === '3') {
 		playerData = data.show.Round3.players;
+		currentMiniGame = data.show.Round3.minigame;
 	}
 	const maxTimeRemaining = 60 * 10; //Ten minutes
+	const [showMiniGame, setShowMiniGame] = useState<boolean>(false);
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [progressBarColor, setProgressBarColor] = useState('green');
 	const [gameRunning, setGameRunning] = useState(true);
@@ -47,6 +52,7 @@ export const GameScreen = () => {
 			return count - 1;
 		});
 	};
+
 	useEffect(() => {
 		setTimeRemaining(maxTimeRemaining);
 		setGameRunning(true);
@@ -61,6 +67,18 @@ export const GameScreen = () => {
 
 	const { buttonPressed } = useAppContext();
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (
+			buttonPressed &&
+			buttonPressed.whichController === whichControllerIsWhich.HOST &&
+			buttonPressed.bigButton
+		) {
+			if (!gameRunning) {
+				setShowMiniGame(true);
+			}
+		}
+	}, [gameRunning, buttonPressed, setShowMiniGame]);
 
 	useEffect(() => {
 		if (buttonPressed) {
@@ -179,15 +197,19 @@ export const GameScreen = () => {
 				</Box>
 			)}
 			<Box>
-				<LinearProgress
-					variant="determinate"
-					value={(timeRemaining / maxTimeRemaining) * 100}
-					sx={{
-						'& .MuiLinearProgress-bar': {
-							backgroundColor: progressBarColor,
-						},
-					}}
-				/>
+				{!showMiniGame ? (
+					<LinearProgress
+						variant="determinate"
+						value={(timeRemaining / maxTimeRemaining) * 100}
+						sx={{
+							'& .MuiLinearProgress-bar': {
+								backgroundColor: progressBarColor,
+							},
+						}}
+					/>
+				) : (
+					<div>{currentMiniGame}</div>
+				)}
 			</Box>
 		</Container>
 	);
