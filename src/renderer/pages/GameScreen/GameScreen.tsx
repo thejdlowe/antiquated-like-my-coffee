@@ -11,11 +11,11 @@ export const GameScreen = () => {
 	const { round } = useParams();
 	let playerData;
 	if (round === '1') {
-		playerData = data.show.Round1;
+		playerData = data.show.Round1.players;
 	} else if (round === '2') {
-		playerData = data.show.Round2;
+		playerData = data.show.Round2.players;
 	} else if (round === '3') {
-		playerData = data.show.Round3;
+		playerData = data.show.Round3.players;
 	}
 	const maxTimeRemaining = 60 * 10; //Ten minutes
 	const [timeRemaining, setTimeRemaining] = useState(0);
@@ -61,7 +61,7 @@ export const GameScreen = () => {
 
 	const { buttonPressed } = useAppContext();
 	const navigate = useNavigate();
-	
+
 	useEffect(() => {
 		if (buttonPressed) {
 			if (canAcceptAnswers) {

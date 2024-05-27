@@ -5,7 +5,10 @@ export type PlayerType = {
 	imagePath: string;
 };
 
-export type RoundType = [PlayerType, PlayerType, PlayerType];
+export type RoundType = {
+	players: [PlayerType, PlayerType, PlayerType];
+	minigame: string;
+};
 
 export type ShowType = {
 	Round1: RoundType;
