@@ -21,7 +21,7 @@ export const GameScreen = () => {
 		playerData = data.show.Round3.players;
 		currentMiniGame = data.show.Round3.minigame;
 	}
-	const maxTimeRemaining = 60 * 10; //Ten minutes
+	const maxTimeRemaining = 60 * 0.1; //Ten minutes
 	const [showMiniGame, setShowMiniGame] = useState<boolean>(false);
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [progressBarColor, setProgressBarColor] = useState('green');
@@ -74,11 +74,44 @@ export const GameScreen = () => {
 			buttonPressed.whichController === whichControllerIsWhich.HOST &&
 			buttonPressed.bigButton
 		) {
-			if (!gameRunning) {
+			if (!gameRunning && !showMiniGame) {
 				setShowMiniGame(true);
+				setCanAcceptAnswers(false);
 			}
 		}
 	}, [gameRunning, buttonPressed, setShowMiniGame]);
+
+	const [hostAllowScore, setHostAllowScore] = useState(true);
+
+	useEffect(() => {
+		if (showMiniGame) {
+			if (
+				buttonPressed &&
+				buttonPressed.whichController === whichControllerIsWhich.HOST &&
+				hostAllowScore
+			) {
+				let addScore = false;
+				if (buttonPressed.AButton) {
+					addScore = true;
+					setPlayerOneScore((prev) => prev + 5);
+				}
+				if (buttonPressed.BButton) {
+					addScore = true;
+					setPlayerTwoScore((prev) => prev + 5);
+				}
+				if (buttonPressed.YButton) {
+					addScore = true;
+					setPlayerThreeScore((prev) => prev + 5);
+				}
+				if (addScore) {
+					setHostAllowScore(false);
+					setTimeout(() => {
+						setHostAllowScore(true);
+					}, 1000);
+				}
+			}
+		}
+	}, [showMiniGame]);
 
 	useEffect(() => {
 		if (buttonPressed) {
@@ -97,6 +130,7 @@ export const GameScreen = () => {
 				) {
 					let score = 0;
 
+					if (buttonPressed.bigButton) score = 4;
 					if (buttonPressed.AButton) score = 3;
 					if (buttonPressed.BButton) score = 2;
 					if (buttonPressed.XButton) score = 1;
