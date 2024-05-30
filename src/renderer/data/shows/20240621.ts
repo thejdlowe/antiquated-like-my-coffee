@@ -3,7 +3,7 @@ import { playerImages } from '../../media';
 
 export const show: ShowType = {
 	Round1: {
-		minigame: "Suburban Innuendo",
+		minigame: 'Suburban Innuendo',
 		players: [
 			{
 				displayName: 'Chris F.',
@@ -12,26 +12,9 @@ export const show: ShowType = {
 				pronouns: 'He/Him',
 			},
 			{
-				displayName: 'Chris H.',
-				fullName: 'Chris Heiberger',
-				imagePath: playerImages.ChrisH,
-				pronouns: 'He/Him',
-			},
-			{
 				displayName: 'Heather',
 				fullName: 'Heather Scott',
 				imagePath: playerImages.Heather,
-				pronouns: 'She/Her',
-			},
-		],
-	},
-	Round2: {
-		minigame: "Sexy Slogan",
-		players: [
-			{
-				displayName: 'Q',
-				fullName: 'Chakra Quan',
-				imagePath: playerImages.Chakra,
 				pronouns: 'She/Her',
 			},
 			{
@@ -39,6 +22,23 @@ export const show: ShowType = {
 				fullName: 'The Motts',
 				imagePath: playerImages.Motts,
 				pronouns: 'He/Him',
+			},
+		],
+	},
+	Round2: {
+		minigame: 'Sexy Slogan',
+		players: [
+			{
+				displayName: 'Chris H.',
+				fullName: 'Chris Heiberger',
+				imagePath: playerImages.ChrisH,
+				pronouns: 'He/Him',
+			},
+			{
+				displayName: 'Q',
+				fullName: 'Chakra Quan',
+				imagePath: playerImages.Chakra,
+				pronouns: 'She/Her',
 			},
 			{
 				displayName: 'Kaley',
