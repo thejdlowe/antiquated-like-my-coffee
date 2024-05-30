@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {
+	createContext,
+	useContext,
+	useState,
+	useEffect,
+	useCallback,
+} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { whichControllerIsWhich } from './consts';
 
@@ -6,7 +12,7 @@ interface AppContextProviderProps {
 	children?: React.ReactNode | React.ReactNode[];
 }
 
-const AppContext = createContext<Record<string, ButtonPressedProps>>({
+const AppContext = createContext({
 	buttonPressed: {
 		whichController: 0,
 		startButton: false,
@@ -18,6 +24,7 @@ const AppContext = createContext<Record<string, ButtonPressedProps>>({
 		XButton: false,
 		YButton: false,
 	},
+	resetButtonPressed: () => {},
 });
 
 type ShowStates = 'beginning' | 'active' | 'shutdown';
@@ -78,14 +85,28 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 			buttonPressed &&
 			buttonPressed.whichController == whichControllerIsWhich.HOST &&
 			buttonPressed.XboxButton &&
-			pathname !== "/shutdown"
+			pathname !== '/shutdown'
 		) {
 			navigate('/');
 		}
 	}, [buttonPressed, navigate]);
 
+	const resetButtonPressed = useCallback(() => {
+		setButtonPressed({
+			whichController: 0,
+			startButton: false,
+			backButton: false,
+			XboxButton: false,
+			bigButton: false,
+			AButton: false,
+			BButton: false,
+			XButton: false,
+			YButton: false,
+		});
+	}, []);
+
 	return (
-		<AppContext.Provider value={{ buttonPressed }}>
+		<AppContext.Provider value={{ buttonPressed, resetButtonPressed }}>
 			{children}
 		</AppContext.Provider>
 	);

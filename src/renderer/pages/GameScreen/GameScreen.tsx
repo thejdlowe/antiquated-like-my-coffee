@@ -65,7 +65,7 @@ export const GameScreen = () => {
 		};
 	}, []);
 
-	const { buttonPressed } = useAppContext();
+	const { buttonPressed, resetButtonPressed } = useAppContext();
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -105,6 +105,7 @@ export const GameScreen = () => {
 				}
 				if (addScore) {
 					setHostAllowScore(false);
+					resetButtonPressed();
 					setTimeout(() => {
 						setHostAllowScore(true);
 					}, 1000);
