@@ -111,7 +111,7 @@ export const GameScreen = () => {
 				}
 			}
 		}
-	}, [showMiniGame]);
+	}, [showMiniGame, buttonPressed, hostAllowScore]);
 
 	useEffect(() => {
 		if (buttonPressed) {
