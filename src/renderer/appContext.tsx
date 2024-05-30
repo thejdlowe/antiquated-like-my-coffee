@@ -62,19 +62,6 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 	useEffect(() => {
 		window.electronAPI.onButtonUpdate((value: ButtonPressedProps) => {
 			setButtonPressed(value);
-			setTimeout(() => {
-				setButtonPressed({
-					whichController: 0,
-					startButton: false,
-					backButton: false,
-					XboxButton: false,
-					bigButton: false,
-					AButton: false,
-					BButton: false,
-					XButton: false,
-					YButton: false,
-				});
-			}, 50);
 		});
 	}, []);
 
@@ -104,19 +91,7 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 		}
 	}, [buttonPressed, navigate]);
 
-	const resetButtonPressed = useCallback(() => {
-		setButtonPressed({
-			whichController: 0,
-			startButton: false,
-			backButton: false,
-			XboxButton: false,
-			bigButton: false,
-			AButton: false,
-			BButton: false,
-			XButton: false,
-			YButton: false,
-		});
-	}, []);
+	const resetButtonPressed = useCallback(() => {}, []);
 
 	return (
 		<AppContext.Provider value={{ buttonPressed, resetButtonPressed }}>
