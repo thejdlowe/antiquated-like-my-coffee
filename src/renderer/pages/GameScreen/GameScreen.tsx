@@ -79,7 +79,7 @@ export const GameScreen = () => {
 				setCanAcceptAnswers(false);
 			}
 		}
-	}, [gameRunning, buttonPressed, setShowMiniGame]);
+	}, [gameRunning, buttonPressed, setShowMiniGame, setCanAcceptAnswers]);
 
 	const [hostAllowScore, setHostAllowScore] = useState(true);
 
