@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { whichControllerIsWhich } from './consts';
+import useSound from 'use-sound';
 
 interface AppContextProviderProps {
 	children?: React.ReactNode | React.ReactNode[];
@@ -25,6 +26,7 @@ const AppContext = createContext({
 		YButton: false,
 	},
 	resetButtonPressed: () => {},
+	playSound: () => {},
 });
 
 type ShowStates = 'beginning' | 'active' | 'shutdown';
@@ -93,8 +95,12 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
 
 	const resetButtonPressed = useCallback(() => {}, []);
 
+	const playSound = useCallback(() => {}, []);
+
 	return (
-		<AppContext.Provider value={{ buttonPressed, resetButtonPressed }}>
+		<AppContext.Provider
+			value={{ buttonPressed, resetButtonPressed, playSound }}
+		>
 			{children}
 		</AppContext.Provider>
 	);
