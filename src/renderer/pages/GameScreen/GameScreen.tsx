@@ -243,7 +243,7 @@ export const GameScreen = () => {
 						}}
 					/>
 				) : (
-					<div>{currentMiniGame}</div>
+					<Typography variant="h1">{currentMiniGame}</Typography>
 				)}
 			</Box>
 		</Container>

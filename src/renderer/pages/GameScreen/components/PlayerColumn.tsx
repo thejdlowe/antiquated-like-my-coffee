@@ -43,27 +43,5 @@ export const PlayerColumn = ({
 				<Typography variant="h1">{score}</Typography>
 			</Grid>
 		</Grid>
-		// <Box
-		// 	sx={{
-		// 		width: '33%',
-		// 		transition: 'background 1s ease',
-		// 		backgroundColor: isActive ? backgroundColor : 'white',
-		// 		alignContent: 'center',
-		// 	}}
-		// >
-		// 		<Typography
-		// 			onClick={(evt) => {
-		// 				evt.preventDefault();
-		// 				setActivePlayer();
-		// 			}}
-		// 			variant="h6"
-		// 		>
-		// 			Player {playerNum + ''}
-		// 		</Typography>
-		// 		<Typography variant="h2">{playerName}</Typography>
-		// 		<Typography variant="h5">{pronouns}</Typography>
-		// 		<br />
-		// 		<Typography variant="h1">{score}</Typography>
-		// </Box>
 	);
 };
