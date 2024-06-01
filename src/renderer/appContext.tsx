@@ -7,7 +7,6 @@ import React, {
 } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { whichControllerIsWhich } from './consts';
-import useSound from 'use-sound';
 
 interface AppContextProviderProps {
 	children?: React.ReactNode | React.ReactNode[];
