@@ -43,3 +43,17 @@ const [play] = useSound('./LMCsoundeffects.mp3', {
 		zelda: [29336, 31150 - 29336],
 	},
 });
+
+export const playerSounds = [
+	() => play({ id: 'amongus' }),
+	() => play({ id: 'fortnite' }),
+	() => play({ id: 'gameboy' }),
+	() => play({ id: 'homerun' }),
+	() => play({ id: 'icq' }),
+	() => play({ id: 'mariopause' }),
+	() => play({ id: 'metalgear' }),
+	() => play({ id: 'mariopowerup' }),
+	() => play({ id: 'konami' }),
+	() => play({ id: 'wheeloffortune' }),
+	() => play({ id: 'zelda' }),
+];
