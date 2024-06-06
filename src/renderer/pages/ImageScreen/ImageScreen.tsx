@@ -32,8 +32,9 @@ export const ImageScreen = ({
 	const [isPlayingSound, setIsPlayingSound] = useState(false);
 	const [play] = useSound(MP3Data, {
 		onend: () => {
-			setIsPlayingSound(false);
+			//setIsPlayingSound(false);
 		},
+		onloaderror: () => {},
 	});
 	const navigate = useNavigate();
 	useEffect(() => {
