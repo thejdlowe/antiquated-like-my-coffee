@@ -30,7 +30,7 @@ export const ImageScreen = ({
 }) => {
 	const { buttonPressed } = useAppContext();
 	const [isPlayingSound, setIsPlayingSound] = useState(false);
-	const [play] = useSound(MP3Data, {
+	const [play] = useSound('./LMCsoundeffects.mp3', {
 		onend: () => {
 			//setIsPlayingSound(false);
 		},
