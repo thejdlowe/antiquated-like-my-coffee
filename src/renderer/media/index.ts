@@ -28,7 +28,7 @@ export const playerImages = {
 
 export const logo = Logo;
 
-const [play] = useSound('./LMCsoundeffects.mp3', {
+export const [play] = useSound('./LMCsoundeffects.mp3', {
 	sprite: {
 		amongus: [0, 3356],
 		fortnite: [6468, 6557 - 6468],
