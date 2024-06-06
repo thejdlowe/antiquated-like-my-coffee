@@ -1,7 +1,5 @@
 import { ShowType } from '../show.type';
-import { playerImages, useGameSounds } from '../../media';
-
-const { playAllSounds, playerSounds } = useGameSounds();
+import { playerImages } from '../../media';
 
 export const show: ShowType = {
 	Round1: {
@@ -12,7 +10,7 @@ export const show: ShowType = {
 				fullName: 'Chris Fay',
 				imagePath: playerImages.RB,
 				pronouns: 'He/Him',
-				sound: 0
+				sound: 0,
 			},
 			{
 				displayName: 'Heather',
