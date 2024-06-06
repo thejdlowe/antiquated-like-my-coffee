@@ -1,5 +1,5 @@
 import useSound from 'use-sound';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Anthony from './Anthony.png';
 import Chakra from './Chakra.png';
 import ChrisH from './Chris H.png';
@@ -30,11 +30,13 @@ export const playerImages = {
 export const logo = Logo;
 
 export const useGameSounds = () => {
-	const gameSoundRef = useRef({
-		playAllSounds: () => {},
-		playerSounds: [() => {}],
-	});
-	const { playAllSounds, playerSounds } = gameSoundRef.current;
+	// const gameSoundRef = useRef({
+	// 	playAllSounds: () => {},
+	// 	playerSounds: [() => {}],
+	// });
+	const [playAllSounds, setPlayAllSounds] = useState(() => () => {});
+	const [playerSounds, setPlayerSounds] = useState([() => {}]);
+	//const { playAllSounds, playerSounds } = gameSoundRef.current;
 	useEffect(() => {
 		const [play] = useSound('./LMCsoundeffects.mp3', {
 			sprite: {
@@ -51,11 +53,11 @@ export const useGameSounds = () => {
 				zelda: [29336, 31150 - 29336],
 			},
 		});
-		
+
 		const playAllSounds = () => {
 			play();
 		};
-		
+
 		const playerSounds = [
 			() => play({ id: 'amongus' }),
 			() => play({ id: 'fortnite' }),
@@ -70,8 +72,10 @@ export const useGameSounds = () => {
 			() => play({ id: 'zelda' }),
 		];
 
-		gameSoundRef.current = {playAllSounds, playerSounds}
+		setPlayAllSounds(playAllSounds);
+		setPlayerSounds(playerSounds);
 
-	}, [])
+		//gameSoundRef.current = {playAllSounds, playerSounds}
+	}, []);
 	return { playAllSounds, playerSounds };
 };

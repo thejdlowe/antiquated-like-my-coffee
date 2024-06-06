@@ -28,7 +28,7 @@ export const ImageScreen = ({
 	children: React.ReactNode | React.ReactNode[];
 }) => {
 	const { buttonPressed } = useAppContext();
-	const { playAllSounds, playerSounds } = useGameSounds();
+	const { playAllSounds } = useGameSounds();
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (
