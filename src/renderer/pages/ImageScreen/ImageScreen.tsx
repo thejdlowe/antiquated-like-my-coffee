@@ -39,7 +39,7 @@ export const ImageScreen = ({
 	const navigate = useNavigate();
 	useEffect(() => {
 		play();
-	}, []);
+	}, [play]);
 	useEffect(() => {
 		if (
 			buttonPressed &&
@@ -67,7 +67,7 @@ export const ImageScreen = ({
 				play();
 			}
 		}
-	}, [buttonPressed, navigate, isPlayingSound]);
+	}, [buttonPressed, navigate, play, isPlayingSound]);
 
 	let returner;
 	if (Array.isArray(children)) {
