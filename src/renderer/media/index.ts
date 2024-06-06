@@ -28,7 +28,7 @@ export const playerImages = {
 
 export const logo = Logo;
 
-export const [play] = useSound('./LMCsoundeffects.mp3', {
+const [play] = useSound('./LMCsoundeffects.mp3', {
 	sprite: {
 		amongus: [0, 3356],
 		fortnite: [6468, 6557 - 6468],
@@ -43,6 +43,10 @@ export const [play] = useSound('./LMCsoundeffects.mp3', {
 		zelda: [29336, 31150 - 29336],
 	},
 });
+
+export const playAllSounds = () => {
+	play();
+}
 
 export const playerSounds = [
 	() => play({ id: 'amongus' }),

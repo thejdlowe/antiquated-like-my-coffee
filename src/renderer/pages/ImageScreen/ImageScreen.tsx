@@ -4,7 +4,7 @@ import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
 import { Container } from '@mui/material';
 import { DebugControllers } from '../components';
-import { play } from '../../media';
+import { playAllSounds } from '../../media';
 import Carousel from 'react-material-ui-carousel';
 
 export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
@@ -52,7 +52,7 @@ export const ImageScreen = ({
 				navigate(`/game/${id}`);
 			}
 			if (buttonPressed.bigButton) {
-				play();
+				playAllSounds();
 			}
 		}
 	}, [buttonPressed, navigate]);
