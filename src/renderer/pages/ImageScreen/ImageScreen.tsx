@@ -29,7 +29,7 @@ export const ImageScreen = ({
 	children: React.ReactNode | React.ReactNode[];
 }) => {
 	const { buttonPressed } = useAppContext();
-	const [play] = useSound(MP3Data);
+	const [play, { duration }] = useSound(MP3Data);
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (
@@ -54,6 +54,7 @@ export const ImageScreen = ({
 				navigate(`/game/${id}`);
 			}
 			if (buttonPressed.bigButton) {
+				console.log(duration);
 				play();
 			}
 		}
