@@ -15,7 +15,7 @@ const configuration: webpack.Configuration = {
 	module: {
 		rules: [
 			{
-				test: /\.(gif|png|jpe?g|svg|xml|glsl|mp3)$/i,
+				test: /\.(mp3)$/i,
 				use: 'file-loader',
 			},
 			{
