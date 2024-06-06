@@ -28,7 +28,7 @@ export const ImageScreen = ({
 	children: React.ReactNode | React.ReactNode[];
 }) => {
 	const { buttonPressed } = useAppContext();
-	const [play] = useSound('../../media/LMCsoundeffects.mp3');
+	const [play] = useSound('./LMCsoundeffects.mp3');
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (
