@@ -4,6 +4,7 @@ import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
 import { Container } from '@mui/material';
 import { DebugControllers } from '../components';
+import { MP3Data } from '../../media';
 import useSound from 'use-sound';
 import Carousel from 'react-material-ui-carousel';
 
@@ -28,7 +29,7 @@ export const ImageScreen = ({
 	children: React.ReactNode | React.ReactNode[];
 }) => {
 	const { buttonPressed } = useAppContext();
-	const [play] = useSound('./LMCsoundeffects.mp3');
+	const [play] = useSound(MP3Data);
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (

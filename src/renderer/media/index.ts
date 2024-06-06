@@ -11,6 +11,7 @@ import Motts from './Motts.png';
 import RB from './RB.png';
 import Rob from './Rob.png';
 import Logo from './logo.png';
+import mp3data from './LMCsoundeffects.mp3'
 
 export const playerImages = {
 	Anthony,
@@ -27,3 +28,5 @@ export const playerImages = {
 };
 
 export const logo = Logo;
+
+export const MP3Data = mp3data;
