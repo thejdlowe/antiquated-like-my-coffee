@@ -4,7 +4,7 @@ import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
 import { Container } from '@mui/material';
 import { DebugControllers } from '../components';
-//import { playAllSounds } from '../../media';
+import { useGameSounds } from '../../media';
 import Carousel from 'react-material-ui-carousel';
 
 export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
@@ -28,6 +28,7 @@ export const ImageScreen = ({
 	children: React.ReactNode | React.ReactNode[];
 }) => {
 	const { buttonPressed } = useAppContext();
+	const { playAllSounds, playerSounds } = useGameSounds();
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (
@@ -52,7 +53,7 @@ export const ImageScreen = ({
 				navigate(`/game/${id}`);
 			}
 			if (buttonPressed.bigButton) {
-				//playAllSounds();
+				playAllSounds();
 			}
 		}
 	}, [buttonPressed, navigate]);

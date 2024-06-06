@@ -1,5 +1,7 @@
 import { ShowType } from '../show.type';
-import { playerImages, playerSounds } from '../../media';
+import { playerImages, useGameSounds } from '../../media';
+
+const { playAllSounds, playerSounds } = useGameSounds();
 
 export const show: ShowType = {
 	Round1: {
