@@ -27,5 +27,3 @@ export const playerImages = {
 };
 
 export const logo = Logo;
-
-export * from "./useGameSounds";
