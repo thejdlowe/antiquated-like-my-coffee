@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
@@ -29,7 +29,12 @@ export const ImageScreen = ({
 	children: React.ReactNode | React.ReactNode[];
 }) => {
 	const { buttonPressed } = useAppContext();
-	const [play, { duration }] = useSound(MP3Data);
+	const [isPlayingSound, setIsPlayingSound] = useState(false);
+	const [play] = useSound(MP3Data, {
+		onend: () => {
+			setIsPlayingSound(false);
+		},
+	});
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (
@@ -53,12 +58,12 @@ export const ImageScreen = ({
 					id = buttonsToWhichRound.Y_BUTTON + '';
 				navigate(`/game/${id}`);
 			}
-			if (buttonPressed.bigButton) {
-				console.log(duration);
+			if (buttonPressed.bigButton && !isPlayingSound) {
+				setIsPlayingSound(true);
 				play();
 			}
 		}
-	}, [buttonPressed, navigate]);
+	}, [buttonPressed, navigate, isPlayingSound]);
 
 	let returner;
 	if (Array.isArray(children)) {
