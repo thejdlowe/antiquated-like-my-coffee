@@ -7,6 +7,7 @@ export const PlayerColumn = ({
 	isActive,
 	playerNum,
 	setActivePlayer,
+	playSound,
 }: {
 	playerName: string;
 	pronouns: string;
@@ -15,6 +16,7 @@ export const PlayerColumn = ({
 	isActive: boolean;
 	playerNum: number;
 	setActivePlayer: any;
+	playSound: () => void;
 }) => {
 	return (
 		<Grid
