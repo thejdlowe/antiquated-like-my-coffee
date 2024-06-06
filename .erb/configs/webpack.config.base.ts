@@ -17,16 +17,7 @@ const configuration: webpack.Configuration = {
 			{
 				test: /\.wav$|\.mp3$/,
 				exclude: /node_modules/,
-				use: {
-					loader: 'file-loader',
-					options: {
-						// Remove this line to enable type checking in webpack builds
-						transpileOnly: true,
-						compilerOptions: {
-							module: 'esnext',
-						},
-					},
-				},
+				loader: 'file-loader',
 			},
 			{
 				test: /\.[jt]sx?$/,
