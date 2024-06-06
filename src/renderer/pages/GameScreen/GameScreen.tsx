@@ -189,7 +189,7 @@ export const GameScreen = () => {
 					setActivePlayer={() => {
 						setPlayerAnswering(whichControllerIsWhich.PLAYER_ONE);
 					}}
-					playSound={playerData ? playerData[0].sound : () => {}}
+					playSound={playerData ? playerData[0].sound : -1}
 				/>
 				<PlayerColumn
 					playerNum={2}
@@ -203,7 +203,7 @@ export const GameScreen = () => {
 					setActivePlayer={() => {
 						setPlayerAnswering(whichControllerIsWhich.PLAYER_TWO);
 					}}
-					playSound={playerData ? playerData[1].sound : () => {}}
+					playSound={playerData ? playerData[1].sound : -1}
 				/>
 				<PlayerColumn
 					playerNum={3}
@@ -217,7 +217,7 @@ export const GameScreen = () => {
 					setActivePlayer={() => {
 						setPlayerAnswering(whichControllerIsWhich.PLAYER_THREE);
 					}}
-					playSound={playerData ? playerData[2].sound : () => {}}
+					playSound={playerData ? playerData[2].sound : -1}
 				/>
 			</Box>
 			{debugMode && (

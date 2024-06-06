@@ -3,7 +3,7 @@ export type PlayerType = {
 	fullName: string;
 	pronouns: 'He/Him' | 'She/Her' | 'They/Them';
 	imagePath: string;
-	sound: () => void;
+	sound: number;
 };
 
 export type RoundType = {

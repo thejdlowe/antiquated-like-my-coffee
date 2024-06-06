@@ -16,7 +16,7 @@ export const PlayerColumn = ({
 	isActive: boolean;
 	playerNum: number;
 	setActivePlayer: any;
-	playSound: () => void;
+	playSound: number;
 }) => {
 	return (
 		<Grid
