@@ -4,6 +4,7 @@ import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
 import { Container } from '@mui/material';
 import { DebugControllers } from '../components';
+import { play } from '../../media';
 import Carousel from 'react-material-ui-carousel';
 
 export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
@@ -31,18 +32,28 @@ export const ImageScreen = ({
 	useEffect(() => {
 		if (
 			buttonPressed &&
-			buttonPressed.whichController == whichControllerIsWhich.HOST &&
-			(buttonPressed.AButton ||
+			buttonPressed.whichController == whichControllerIsWhich.HOST
+		) {
+			if (
+				buttonPressed.AButton ||
 				buttonPressed.BButton ||
 				buttonPressed.XButton ||
-				buttonPressed.YButton)
-		) {
-			let id = 'broken';
-			if (buttonPressed.AButton) id = buttonsToWhichRound.A_BUTTON + '';
-			if (buttonPressed.BButton) id = buttonsToWhichRound.B_BUTTON + '';
-			if (buttonPressed.XButton) id = buttonsToWhichRound.X_BUTTON + '';
-			if (buttonPressed.YButton) id = buttonsToWhichRound.Y_BUTTON + '';
-			navigate(`/game/${id}`);
+				buttonPressed.YButton
+			) {
+				let id = 'broken';
+				if (buttonPressed.AButton)
+					id = buttonsToWhichRound.A_BUTTON + '';
+				if (buttonPressed.BButton)
+					id = buttonsToWhichRound.B_BUTTON + '';
+				if (buttonPressed.XButton)
+					id = buttonsToWhichRound.X_BUTTON + '';
+				if (buttonPressed.YButton)
+					id = buttonsToWhichRound.Y_BUTTON + '';
+				navigate(`/game/${id}`);
+			}
+			if (buttonPressed.bigButton) {
+				play();
+			}
 		}
 	}, [buttonPressed, navigate]);
 
