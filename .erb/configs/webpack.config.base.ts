@@ -15,11 +15,6 @@ const configuration: webpack.Configuration = {
 	module: {
 		rules: [
 			{
-				test: /\.wav$|\.mp3$/,
-				exclude: /node_modules/,
-				loader: 'file-loader',
-			},
-			{
 				test: /\.[jt]sx?$/,
 				exclude: /node_modules/,
 				use: {
