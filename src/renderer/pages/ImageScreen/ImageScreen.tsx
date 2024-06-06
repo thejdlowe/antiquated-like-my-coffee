@@ -38,6 +38,9 @@ export const ImageScreen = ({
 	});
 	const navigate = useNavigate();
 	useEffect(() => {
+		play();
+	}, []);
+	useEffect(() => {
 		if (
 			buttonPressed &&
 			buttonPressed.whichController == whichControllerIsWhich.HOST
