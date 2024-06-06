@@ -4,7 +4,6 @@ import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
 import { Container } from '@mui/material';
 import { DebugControllers } from '../components';
-import { MP3Data } from '../../media';
 import useSound from 'use-sound';
 import Carousel from 'react-material-ui-carousel';
 

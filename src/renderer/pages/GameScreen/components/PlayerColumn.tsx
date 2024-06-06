@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Grid, Typography } from '@mui/material';
-import { MP3Data } from '../../../media';
 import useSound from 'use-sound';
 export const PlayerColumn = ({
 	playerName,
@@ -21,7 +20,7 @@ export const PlayerColumn = ({
 	setActivePlayer: any;
 	playSound: number;
 }) => {
-	const [play] = useSound(MP3Data, {
+	const [play] = useSound('./LMCsoundeffects.mp3', {
 		sprite: {
 			amongus: [0, 3356],
 			fortnite: [6468, 6557 - 6468],
