@@ -34,7 +34,8 @@ export const ImageScreen = ({
 		onend: () => {
 			//setIsPlayingSound(false);
 		},
-		onloaderror: () => {},
+		onloaderror: () => console.log,
+		onplayerror: () => console.log,
 	});
 	const navigate = useNavigate();
 	useEffect(() => {
