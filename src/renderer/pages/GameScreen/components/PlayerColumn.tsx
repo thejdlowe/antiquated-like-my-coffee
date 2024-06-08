@@ -36,28 +36,28 @@ export const PlayerColumn = ({
 	// const file = files[playSound] ?? '';
 	useEffect(() => {
 		if (isActive) {
-			const [startTime, timeout] = audioData[playSound] ?? [0, 1];
-			const fileName = `./LMCsoundeffects.mp3`;
-			const audioElement = new Audio(fileName);
-			audioElement.preload = 'auto';
-			audioElement.addEventListener('canplaythrough', () => {
-				audioElement.currentTime =
-					startTime <= 0 ? 0 : startTime / 1000;
-				setTimeout(() => {
-					audioElement.pause();
-				}, timeout);
-			});
-			// const [startTime, endTime] = audioData[playSound] ?? [0, 1];
-			// const fileName = `./LMCsoundeffects.mp3#t=${[
-			// 	startTime <= 0 ? 0 : startTime / 1000,
-			// 	endTime / 1000,
-			// ].join(',')}`;
-			// console.log(fileName);
+			// const [startTime, endTime, timeout] = audioData[playSound] ?? [0, 1];
+			// const fileName = `./LMCsoundeffects.mp3`;
 			// const audioElement = new Audio(fileName);
-
 			// audioElement.preload = 'auto';
+			// audioElement.addEventListener('canplaythrough', () => {
+			// 	audioElement.currentTime =
+			// 		startTime <= 0 ? 0 : startTime / 1000;
+			// 	setTimeout(() => {
+			// 		audioElement.pause();
+			// 	}, timeout);
+			// });
+			const [startTime, endTime] = audioData[playSound] ?? [0, 1];
+			const fileName = `./LMCsoundeffects.mp3#t=${[
+				startTime <= 0 ? 0 : startTime / 1000,
+				endTime / 1000,
+			].join(',')}`;
+			console.log(fileName);
+			const audioElement = new Audio(fileName);
 
-			// audioElement.play();
+			audioElement.preload = 'auto';
+
+			audioElement.play();
 		}
 	}, [isActive]);
 
