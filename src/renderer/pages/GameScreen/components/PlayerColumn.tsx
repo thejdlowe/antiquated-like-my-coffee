@@ -35,15 +35,20 @@ export const PlayerColumn = ({
 	];
 	const file = files[playSound] ?? '';
 	const audioElement = new Audio(file);
-	const myAudioRef = useRef(audioElement);
+	//const myAudioRef = useRef(audioElement);
 	useEffect(() => {
 		if (isActive) {
-			if (myAudioRef.current) {
-				console.log(file);
-				myAudioRef.current.play();
-			}
+			const audioElement = new Audio(file);
+			console.log(file);
+			audioElement.preload = 'auto';
+			//const myAudioRef = useRef(audioElement);
+			audioElement.play();
+			// if (myAudioRef.current) {
+			// 	console.log(file);
+			// 	myAudioRef.current.play();
+			// }
 		}
-	}, [isActive, myAudioRef]);
+	}, [isActive]);
 	// const [play] = useSound('./LMCsoundeffects.mp3', {
 	// 	sprite: {
 	// 		amongus: [0, 3356],
