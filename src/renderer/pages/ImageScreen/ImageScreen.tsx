@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, LegacyRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../appContext';
 import { whichControllerIsWhich, buttonsToWhichRound } from '../../consts';
@@ -29,6 +29,9 @@ export const ImageScreen = ({
 }) => {
 	const { buttonPressed } = useAppContext();
 	const [isPlayingSound, setIsPlayingSound] = useState(false);
+	const audioElement = new Audio('./LMCsoundeffects.mp3');
+	const myAudioRef = useRef(audioElement);
+
 	const [play] = useSound('./LMCsoundeffects.mp3', {
 		preload: true,
 		onend: () => {
@@ -39,8 +42,10 @@ export const ImageScreen = ({
 	});
 	const navigate = useNavigate();
 	useEffect(() => {
-		play();
-	}, [play]);
+		if (myAudioRef.current) {
+			myAudioRef.current.play();
+		}
+	}, [myAudioRef]);
 	useEffect(() => {
 		if (
 			buttonPressed &&
@@ -88,6 +93,7 @@ export const ImageScreen = ({
 	} else returner = children;
 	return (
 		<DebugControllers>
+			{/* <audio ref={myAudioRef} src="./LMCsoundeffects.mp3"></audio> */}
 			<Container maxWidth={false}>{returner}</Container>
 		</DebugControllers>
 	);
