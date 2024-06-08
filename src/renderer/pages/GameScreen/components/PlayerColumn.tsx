@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Grid, Typography } from '@mui/material';
-import useSound from 'use-sound';
+import { v4 as uuidv4 } from 'uuid';
 export const PlayerColumn = ({
 	playerName,
 	pronouns,
@@ -21,17 +21,17 @@ export const PlayerColumn = ({
 	playSound: number;
 }) => {
 	const files: string[] = [
-		'./amongus.mp3',
-		'./fortnite.mp3',
-		'./gameboystartup.mp3',
-		'./homerun.mp3',
-		'./icq.mp3',
-		'./KonamiPause1.mp3',
-		'./mariopause.mp3',
-		'./mgs.mp3',
-		'./nsmb_power-up.mp3',
-		'./zelda.mp3',
-		'./wof.mp3',
+		//'./amongus.mp3' + "?rand=" + uuidv4(),
+		'./fortnite.mp3' + '?rand=' + uuidv4(),
+		'./gameboystartup.mp3' + '?rand=' + uuidv4(),
+		'./homerun.mp3' + '?rand=' + uuidv4(),
+		'./icq.mp3' + '?rand=' + uuidv4(),
+		'./KonamiPause1.mp3' + '?rand=' + uuidv4(),
+		'./mariopause.mp3' + '?rand=' + uuidv4(),
+		'./mgs.mp3' + '?rand=' + uuidv4(),
+		'./nsmb_power-up.mp3' + '?rand=' + uuidv4(),
+		'./zelda.mp3' + '?rand=' + uuidv4(),
+		//'./wof.mp3'+ "?rand=" + uuidv4(),
 	];
 	const file = files[playSound] ?? '';
 	const audioElement = new Audio(file);
