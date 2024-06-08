@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { Grid, Typography } from '@mui/material';
-import { v4 as uuidv4 } from 'uuid';
 export const PlayerColumn = ({
 	playerName,
 	pronouns,
@@ -21,17 +20,17 @@ export const PlayerColumn = ({
 	playSound: number;
 }) => {
 	const files: string[] = [
-		//'./amongus.mp3' + "?rand=",
-		'./fortnite.mp3' + '?rand=',
-		'./gameboystartup.mp3' + '?rand=',
-		'./homerun.mp3' + '?rand=',
-		'./icq.mp3' + '?rand=',
-		'./konami.wav' + '?rand=',
-		'./mariopause.mp3' + '?rand=',
-		'./mgs.mp3' + '?rand=',
-		'./nsmb.wav' + '?rand=',
-		'./zelda.mp3' + '?rand=',
-		//'./wof.mp3'+ "?rand=",
+		//'./amongus.mp3',
+		'./fortnite.mp3',
+		'./gameboystartup.mp3',
+		'./homerun.mp3',
+		'./icq.mp3',
+		'./konami.wav',
+		'./mariopause.mp3',
+		'./mgs.mp3',
+		'./nsmb.wav',
+		'./zelda.mp3',
+		//'./wof.mp3',
 	];
 	const file = files[playSound] ?? '';
 	//const audioElement = new Audio(file);

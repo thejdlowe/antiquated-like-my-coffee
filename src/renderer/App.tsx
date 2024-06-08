@@ -14,7 +14,7 @@ import {
 	CssBaseline,
 } from '@mui/material';
 import Radio from './media/RadioCanadaBig-VariableFont_wght.ttf';
-//import './App.css';
+import './App.css';
 
 let theme = createTheme({
 	typography: {
