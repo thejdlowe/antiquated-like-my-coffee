@@ -37,12 +37,12 @@ export const PlayerColumn = ({
 	useEffect(() => {
 		if (isActive) {
 			const [startTime, endTime] = audioData[playSound] ?? [0, 0];
-			const audioElement = new Audio(
-				`./LMCsoundeffects.mp3#t=${[
-					startTime <= 0 ? 0 : startTime / 1000,
-					endTime / 1000,
-				].join(',')}`,
-			);
+			const fileName = `./LMCsoundeffects.mp3#t=${[
+				startTime <= 0 ? 0 : startTime / 1000,
+				endTime / 1000,
+			].join(',')}`;
+			console.log(fileName);
+			const audioElement = new Audio(fileName);
 
 			audioElement.preload = 'auto';
 
