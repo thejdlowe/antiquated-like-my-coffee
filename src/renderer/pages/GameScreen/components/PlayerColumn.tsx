@@ -39,6 +39,7 @@ export const PlayerColumn = ({
 	useEffect(() => {
 		if (isActive) {
 			if (myAudioRef.current) {
+				console.log(file);
 				myAudioRef.current.play();
 			}
 		}
