@@ -26,10 +26,10 @@ export const PlayerColumn = ({
 		'./gameboystartup.mp3' + '?rand=',
 		'./homerun.mp3' + '?rand=',
 		'./icq.mp3' + '?rand=',
-		'./KonamiPause1.mp3' + '?rand=',
+		'./KonamiPause1.wav' + '?rand=',
 		'./mariopause.mp3' + '?rand=',
 		'./mgs.mp3' + '?rand=',
-		'./nsmb_power-up.mp3' + '?rand=',
+		'./nsmb_power-up.wav' + '?rand=',
 		'./zelda.mp3' + '?rand=',
 		//'./wof.mp3'+ "?rand=",
 	];
