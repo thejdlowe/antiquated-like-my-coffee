@@ -3,7 +3,7 @@ import { playerImages } from '../../media';
 
 export const show: ShowType = {
 	Round1: {
-		minigame: 'Suburban Innuendo',
+		minigame: 'Time Lines',
 		players: [
 			{
 				displayName: 'Chris F.',
@@ -29,7 +29,7 @@ export const show: ShowType = {
 		],
 	},
 	Round2: {
-		minigame: 'Sexy Slogan',
+		minigame: 'Acronympho',
 		players: [
 			{
 				displayName: 'Chris H.',
