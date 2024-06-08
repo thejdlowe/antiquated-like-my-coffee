@@ -28,22 +28,11 @@ export const ImageScreen = ({
 	children: React.ReactNode | React.ReactNode[];
 }) => {
 	const { buttonPressed } = useAppContext();
-	const [isPlayingSound, setIsPlayingSound] = useState(false);
 	const audioElement = new Audio('./LMCsoundeffects.mp3');
 	const myAudioRef = useRef(audioElement);
 
-	const [play] = useSound('./LMCsoundeffects.mp3', {
-		preload: true,
-		onend: () => {
-			//setIsPlayingSound(false);
-		},
-		onloaderror: () => console.log,
-		onplayerror: () => console.log,
-	});
 	const navigate = useNavigate();
-	useEffect(() => {
-		
-	}, [myAudioRef]);
+	useEffect(() => {}, [myAudioRef]);
 	useEffect(() => {
 		if (
 			buttonPressed &&
@@ -66,16 +55,18 @@ export const ImageScreen = ({
 					id = buttonsToWhichRound.Y_BUTTON + '';
 				navigate(`/game/${id}`);
 			}
-			if (buttonPressed.bigButton && !isPlayingSound) {
-				// setIsPlayingSound(true);
-				// play();
-				console.log("Wait what")
-		if (myAudioRef.current) {
-			myAudioRef.current.play();
-		}
+			if (buttonPressed.bigButton) {
+				if (myAudioRef.current) {
+					myAudioRef.current.play();
+				}
+			}
+			if (buttonPressed.startButton) {
+				if (myAudioRef.current) {
+					myAudioRef.current.pause();
+				}
 			}
 		}
-	}, [buttonPressed, navigate, play, isPlayingSound]);
+	}, [buttonPressed, navigate, myAudioRef]);
 
 	let returner;
 	if (Array.isArray(children)) {
