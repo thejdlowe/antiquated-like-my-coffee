@@ -42,9 +42,7 @@ export const ImageScreen = ({
 	});
 	const navigate = useNavigate();
 	useEffect(() => {
-		if (myAudioRef.current) {
-			myAudioRef.current.play();
-		}
+		
 	}, [myAudioRef]);
 	useEffect(() => {
 		if (
@@ -69,8 +67,12 @@ export const ImageScreen = ({
 				navigate(`/game/${id}`);
 			}
 			if (buttonPressed.bigButton && !isPlayingSound) {
-				setIsPlayingSound(true);
-				play();
+				// setIsPlayingSound(true);
+				// play();
+				console.log("Wait what")
+		if (myAudioRef.current) {
+			myAudioRef.current.play();
+		}
 			}
 		}
 	}, [buttonPressed, navigate, play, isPlayingSound]);
