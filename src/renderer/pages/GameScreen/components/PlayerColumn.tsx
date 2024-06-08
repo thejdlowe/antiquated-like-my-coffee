@@ -20,33 +20,8 @@ export const PlayerColumn = ({
 	setActivePlayer: any;
 	playSound: number;
 }) => {
-	// const files: string[] = [
-	// 	//'./amongus.mp3',
-	// 	'./fortnite.mp3',
-	// 	'./gameboystartup.mp3',
-	// 	'./homerun.mp3',
-	// 	'./icq.mp3',
-	// 	'./konami.wav',
-	// 	'./mariopause.mp3',
-	// 	'./mgs.mp3',
-	// 	'./nsmb.wav',
-	// 	'./zelda.mp3',
-	// 	//'./wof.mp3',
-	// ];
-	// const file = files[playSound] ?? '';
 	useEffect(() => {
 		if (isActive) {
-			// const [startTime, endTime, timeout] = audioData[playSound] ?? [0, 1];
-			// const fileName = `./LMCsoundeffects.mp3`;
-			// const audioElement = new Audio(fileName);
-			// audioElement.preload = 'auto';
-			// audioElement.addEventListener('canplaythrough', () => {
-			// 	audioElement.currentTime =
-			// 		startTime <= 0 ? 0 : startTime / 1000;
-			// 	setTimeout(() => {
-			// 		audioElement.pause();
-			// 	}, timeout);
-			// });
 			const [startTime, endTime] = audioData[playSound] ?? [0, 1];
 			const fileName = `./LMCsoundeffects.mp3#t=${[
 				startTime <= 0 ? 0 : startTime / 1000,
@@ -69,7 +44,7 @@ export const PlayerColumn = ({
 			justifyContent="center"
 			style={{
 				minHeight: '100vh',
-				transition: 'background 1s ease',
+				// transition: 'background 1s ease',
 				backgroundColor: isActive ? backgroundColor : 'white',
 			}}
 		>
