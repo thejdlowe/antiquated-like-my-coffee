@@ -34,7 +34,7 @@ export const PlayerColumn = ({
 		//'./wof.mp3'+ "?rand=",
 	];
 	const file = files[playSound] ?? '';
-	const audioElement = new Audio(file);
+	//const audioElement = new Audio(file);
 	//const myAudioRef = useRef(audioElement);
 	useEffect(() => {
 		if (isActive) {
