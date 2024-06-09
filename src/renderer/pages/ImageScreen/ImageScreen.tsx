@@ -13,7 +13,12 @@ export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 		<img
 			key={ImgKey}
 			src={src}
-			style={{ width: '100wh', height: '95vh' }}
+			style={{
+				width: '100wh',
+				height: '95vh',
+				marginLeft: 'auto',
+				marginRight: 'auto',
+			}}
 			onClick={(evt) => {
 				evt.preventDefault();
 				navigate('/game/1');
