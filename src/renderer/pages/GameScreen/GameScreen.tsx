@@ -235,7 +235,7 @@ export const GameScreen = () => {
 					</div>
 				</Box>
 			)}
-			<Box>
+			<Box sx={{ height: '95px' }}>
 				{!showMiniGame ? (
 					<LinearProgress
 						variant="determinate"
