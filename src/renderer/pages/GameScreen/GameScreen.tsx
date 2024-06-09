@@ -248,7 +248,9 @@ export const GameScreen = () => {
 							'--LinearProgress-thickness': '95px',
 							height: '95px',
 						}}
-					/>
+					>
+						<Typography>Wha</Typography>
+					</LinearProgress>
 				) : (
 					<Typography variant="h1">{currentMiniGame}</Typography>
 				)}
