@@ -244,6 +244,8 @@ export const GameScreen = () => {
 							'& .MuiLinearProgress-bar': {
 								backgroundColor: progressBarColor,
 							},
+							'--LinearProgress-radius': '20px',
+							'--LinearProgress-thickness': '24px',
 						}}
 					/>
 				) : (
