@@ -246,6 +246,7 @@ export const GameScreen = () => {
 							},
 							'--LinearProgress-radius': '20px',
 							'--LinearProgress-thickness': '95px',
+							height: '95px',
 						}}
 					/>
 				) : (
