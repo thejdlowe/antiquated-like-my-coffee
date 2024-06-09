@@ -245,7 +245,7 @@ export const GameScreen = () => {
 								backgroundColor: progressBarColor,
 							},
 							'--LinearProgress-radius': '20px',
-							'--LinearProgress-thickness': '24px',
+							'--LinearProgress-thickness': '95vh',
 						}}
 					/>
 				) : (
