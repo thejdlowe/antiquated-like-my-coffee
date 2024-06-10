@@ -26,6 +26,7 @@ export const GameScreen = () => {
 	const [showMiniGame, setShowMiniGame] = useState<boolean>(false);
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [progressBarColor, setProgressBarColor] = useState('green');
+	const [progressText, setProgressText] = useState('Like My *Blank*');
 	const [gameRunning, setGameRunning] = useState(true);
 	const [canAcceptAnswers, setCanAcceptAnswers] = useState(true);
 	const [playerAnswering, setPlayerAnswering] = useState<number | null>(null);
@@ -153,10 +154,13 @@ export const GameScreen = () => {
 	useEffect(() => {
 		const percentageTime = (timeRemaining / maxTimeRemaining) * 100;
 		if (percentageTime <= 33) {
+			setProgressText('Like My *Blank*');
 			setProgressBarColor('red');
 		} else if (percentageTime <= 66) {
+			setProgressText('Like My *Blank*');
 			setProgressBarColor('yellow');
 		} else {
+			setProgressText('Like My *Blank*');
 			setProgressBarColor('green');
 		}
 	}, [timeRemaining, setProgressBarColor]);
@@ -251,14 +255,17 @@ export const GameScreen = () => {
 							}}
 						/>
 						<Typography
+							variant="h5"
 							sx={{
 								position: 'absolute',
 								top: 0,
 								left: '50%',
 								transform: 'transformX(-50%)',
+								'-webkit-text-stroke': '3px black',
+								color: 'white',
 							}}
 						>
-							Wha
+							{progressText}
 						</Typography>
 					</>
 				) : (
