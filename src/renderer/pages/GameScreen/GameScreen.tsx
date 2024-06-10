@@ -237,20 +237,28 @@ export const GameScreen = () => {
 			)}
 			<Box sx={{ height: '95px' }}>
 				{!showMiniGame ? (
-					<LinearProgress
-						variant="determinate"
-						value={(timeRemaining / maxTimeRemaining) * 100}
-						sx={{
-							'& .MuiLinearProgress-bar': {
-								backgroundColor: progressBarColor,
-							},
-							'--LinearProgress-radius': '20px',
-							'--LinearProgress-thickness': '95px',
-							height: '95px',
-						}}
-					>
-						<Typography>Wha</Typography>
-					</LinearProgress>
+					<>
+						<LinearProgress
+							variant="determinate"
+							value={(timeRemaining / maxTimeRemaining) * 100}
+							sx={{
+								'& .MuiLinearProgress-bar': {
+									backgroundColor: progressBarColor,
+								},
+								'--LinearProgress-radius': '20px',
+								'--LinearProgress-thickness': '95px',
+								height: '95px',
+							}}
+						/>
+						<Typography
+							sx={{
+								position: 'absolute',
+								transform: 'translateX(-50%)',
+							}}
+						>
+							Wha
+						</Typography>
+					</>
 				) : (
 					<Typography variant="h1">{currentMiniGame}</Typography>
 				)}
