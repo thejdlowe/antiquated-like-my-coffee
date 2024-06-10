@@ -22,7 +22,7 @@ export const GameScreen = () => {
 		playerData = data.show.Round3.players;
 		currentMiniGame = data.show.Round3.minigame;
 	}
-	const maxTimeRemaining = 60 * 10; //Ten minutes
+	const maxTimeRemaining = 60 * 0.5; //10; //Ten minutes
 	const [showMiniGame, setShowMiniGame] = useState<boolean>(false);
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [progressBarColor, setProgressBarColor] = useState('green');
@@ -154,10 +154,10 @@ export const GameScreen = () => {
 	useEffect(() => {
 		const percentageTime = (timeRemaining / maxTimeRemaining) * 100;
 		if (percentageTime <= 33) {
-			setProgressText('Like My *Blank*');
+			setProgressText('Threesomes Are Like *Blank*');
 			setProgressBarColor('red');
 		} else if (percentageTime <= 66) {
-			setProgressText('Like My *Blank*');
+			setProgressText('Sex With Me Is Like *Blank*');
 			setProgressBarColor('yellow');
 		} else {
 			setProgressText('Like My *Blank*');
