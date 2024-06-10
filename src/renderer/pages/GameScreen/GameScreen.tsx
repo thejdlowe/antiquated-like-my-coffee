@@ -34,6 +34,7 @@ export const GameScreen = () => {
 	const [playerTwoScore, setPlayerTwoScore] = useState<number>(0);
 	const [playerThreeScore, setPlayerThreeScore] = useState<number>(0);
 	const [debugMode, setDebugMode] = useState<boolean>(false);
+	const [newScore, setNewScore] = useState<number | null>(null);
 
 	const parseTimer = useCallback(() => {
 		const minutes = Math.floor(timeRemaining / 60);
