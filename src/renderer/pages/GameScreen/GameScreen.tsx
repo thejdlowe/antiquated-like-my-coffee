@@ -239,7 +239,7 @@ export const GameScreen = () => {
 					</div>
 				</Box>
 			)}
-			<Box sx={{ height: '95px', position: 'relative' }}>
+			<Box sx={{ height: '10vh', position: 'relative' }}>
 				{!showMiniGame ? (
 					<>
 						<LinearProgress
@@ -249,9 +249,9 @@ export const GameScreen = () => {
 								'& .MuiLinearProgress-bar': {
 									backgroundColor: progressBarColor,
 								},
-								'--LinearProgress-radius': '20px',
-								'--LinearProgress-thickness': '95px',
-								height: '95px',
+								// '--LinearProgress-radius': '20px',
+								// '--LinearProgress-thickness': '95px',
+								height: '10vh',
 							}}
 						/>
 						<Typography
@@ -262,7 +262,7 @@ export const GameScreen = () => {
 								transform: 'transformX(-50%)',
 								'-webkit-text-stroke': '1px black',
 								color: 'white !important',
-								fontSize: '33vh',
+								fontSize: '10vh',
 							}}
 						>
 							{progressText}
