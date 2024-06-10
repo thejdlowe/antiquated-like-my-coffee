@@ -258,11 +258,11 @@ export const GameScreen = () => {
 							sx={{
 								position: 'absolute',
 								top: 0,
-								left: '50%',
+								left: '40%',
 								transform: 'transformX(-50%)',
 								'-webkit-text-stroke': '1px black',
 								color: 'white !important',
-								fontSize: '60px',
+								fontSize: '33vh',
 							}}
 						>
 							{progressText}
