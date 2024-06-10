@@ -253,7 +253,9 @@ export const GameScreen = () => {
 						<Typography
 							sx={{
 								position: 'absolute',
-								transform: 'translateX(-50%)',
+								top: 0,
+								left: '50%',
+								transform: 'transformX(-50%)',
 							}}
 						>
 							Wha
