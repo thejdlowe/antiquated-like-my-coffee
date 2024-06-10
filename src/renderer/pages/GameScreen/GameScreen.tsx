@@ -262,7 +262,7 @@ export const GameScreen = () => {
 								transform: 'transformX(-50%)',
 								'-webkit-text-stroke': '1px black',
 								color: 'white !important',
-								fontSize: '10vh',
+								fontSize: '9vh',
 							}}
 						>
 							{progressText}
