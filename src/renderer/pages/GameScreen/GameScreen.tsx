@@ -259,7 +259,7 @@ export const GameScreen = () => {
 							sx={{
 								position: 'absolute',
 								top: 0,
-								left: '40%',
+								left: '30%',
 								transform: 'transformX(-50%)',
 								'-webkit-text-stroke': '1px black',
 								color: 'white !important',
