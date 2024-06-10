@@ -255,7 +255,6 @@ export const GameScreen = () => {
 							}}
 						/>
 						<Typography
-							variant="h4"
 							sx={{
 								position: 'absolute',
 								top: 0,
@@ -263,6 +262,7 @@ export const GameScreen = () => {
 								transform: 'transformX(-50%)',
 								'-webkit-text-stroke': '1px black',
 								color: 'white !important',
+								fontSize: '60px',
 							}}
 						>
 							{progressText}
