@@ -23,7 +23,7 @@ export const GameScreen = () => {
 		playerData = data.show.Round3.players;
 		currentMiniGame = data.show.Round3.minigame;
 	}
-	const maxTimeRemaining = 60 * 10; //Ten minutes
+	const maxTimeRemaining = 60 * 0.5; //Ten minutes
 	const [showMiniGame, setShowMiniGame] = useState<boolean>(false);
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [progressBarColor, setProgressBarColor] = useState('green');
@@ -248,6 +248,7 @@ export const GameScreen = () => {
 								'-webkit-text-stroke': '1px black',
 								color: 'white !important',
 								fontSize: '8vh',
+								lineHeight: '1.4',
 							}}
 						>
 							{progressText}
