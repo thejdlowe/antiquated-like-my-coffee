@@ -23,7 +23,7 @@ export const GameScreen = () => {
 		playerData = data.show.Round3.players;
 		currentMiniGame = data.show.Round3.minigame;
 	}
-	const maxTimeRemaining = 60 * 0.5; //Ten minutes
+	const maxTimeRemaining = 60 * 10; //Ten minutes
 	const [showMiniGame, setShowMiniGame] = useState<boolean>(false);
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [progressBarColor, setProgressBarColor] = useState('green');
@@ -34,15 +34,6 @@ export const GameScreen = () => {
 	const [playerOneScore, setPlayerOneScore] = useState<number>(0);
 	const [playerTwoScore, setPlayerTwoScore] = useState<number>(0);
 	const [playerThreeScore, setPlayerThreeScore] = useState<number>(0);
-
-	const parseTimer = useCallback(() => {
-		const minutes = Math.floor(timeRemaining / 60);
-		const seconds = Math.floor(timeRemaining % 60);
-		return [
-			minutes > 9 ? minutes : '0' + minutes,
-			seconds > 9 ? seconds : '0' + seconds,
-		].join(':');
-	}, [timeRemaining]);
 
 	const updateTimer = () => {
 		setTimeRemaining((count) => {
