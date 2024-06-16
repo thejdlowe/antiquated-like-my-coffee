@@ -65,7 +65,7 @@ export const show: ShowType = {
 				sound: 6,
 			},
 			{
-				displayName: 'Lord Anthony',
+				displayName: 'Anthony',
 				fullName: 'Lord Anthony Windsor II',
 				imagePath: playerImages.Anthony,
 				pronouns: 'He/Him',

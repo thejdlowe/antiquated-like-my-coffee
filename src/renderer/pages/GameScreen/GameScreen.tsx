@@ -6,6 +6,7 @@ import { whichControllerIsWhich } from '../../consts';
 import { Container, Box, LinearProgress } from '@mui/material';
 import { PlayerColumn } from './components';
 import { data } from '../../data';
+import './gameScreen.css';
 
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
@@ -22,7 +23,7 @@ export const GameScreen = () => {
 		playerData = data.show.Round3.players;
 		currentMiniGame = data.show.Round3.minigame;
 	}
-	const maxTimeRemaining = 60 * 2; //10; //Ten minutes
+	const maxTimeRemaining = 60 * 10; //Ten minutes
 	const [showMiniGame, setShowMiniGame] = useState<boolean>(false);
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [progressBarColor, setProgressBarColor] = useState('green');
@@ -33,8 +34,6 @@ export const GameScreen = () => {
 	const [playerOneScore, setPlayerOneScore] = useState<number>(0);
 	const [playerTwoScore, setPlayerTwoScore] = useState<number>(0);
 	const [playerThreeScore, setPlayerThreeScore] = useState<number>(0);
-	const [debugMode, setDebugMode] = useState<boolean>(false);
-	const [newScore, setNewScore] = useState<number | null>(null);
 
 	const parseTimer = useCallback(() => {
 		const minutes = Math.floor(timeRemaining / 60);
@@ -225,21 +224,6 @@ export const GameScreen = () => {
 					playSound={playerData ? playerData[2].sound : -1}
 				/>
 			</Box>
-			{debugMode && (
-				<Box>
-					<div>
-						Is Game Running: {gameRunning + ''}
-						<br />
-						Round: {round}
-						<br />
-						Can accept: {canAcceptAnswers + ''}
-						<br />
-						Who Is Talking: {playerAnswering + ''}
-						<br />
-						Time Remaining: {parseTimer()}
-					</div>
-				</Box>
-			)}
 			<Box sx={{ height: '10vh', position: 'relative' }}>
 				{!showMiniGame ? (
 					<>
