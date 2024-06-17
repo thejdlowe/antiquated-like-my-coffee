@@ -10,7 +10,8 @@ import './gameScreen.css';
 
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
-	const { round } = useParams();
+	const { round, useDelaysiaControls } = useParams();
+	console.log(useDelaysiaControls);
 	let playerData;
 	let currentMiniGame;
 	if (round === '1') {

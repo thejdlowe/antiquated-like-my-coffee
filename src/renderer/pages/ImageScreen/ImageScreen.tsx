@@ -58,7 +58,7 @@ export const ImageScreen = ({
 					id = buttonsToWhichRound.X_BUTTON + '';
 				if (buttonPressed.YButton)
 					id = buttonsToWhichRound.Y_BUTTON + '';
-				navigate(`/game/${id}`);
+				navigate(`/game/${id}/true`);
 			}
 			if (buttonPressed.bigButton) {
 				if (myAudioRef.current) {
