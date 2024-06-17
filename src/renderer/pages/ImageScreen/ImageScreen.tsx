@@ -21,7 +21,7 @@ export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 			}}
 			onClick={(evt) => {
 				evt.preventDefault();
-				navigate('/game/1/true');
+				navigate('/game/1');
 			}}
 		/>
 	);
@@ -58,7 +58,7 @@ export const ImageScreen = ({
 					id = buttonsToWhichRound.X_BUTTON + '';
 				if (buttonPressed.YButton)
 					id = buttonsToWhichRound.Y_BUTTON + '';
-				navigate(`/game/${id}/true`);
+				navigate(`/game/${id}`);
 			}
 			if (buttonPressed.bigButton) {
 				if (myAudioRef.current) {

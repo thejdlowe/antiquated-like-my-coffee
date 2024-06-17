@@ -45,10 +45,7 @@ export default function App() {
 							path="/screensaver"
 							element={<ScreenSaverScreen />}
 						/>
-						<Route
-							path="/game/:round(/:useDelaysiaControls)"
-							element={<GameScreen />}
-						/>
+						<Route path="/game/:round" element={<GameScreen />} />
 						<Route path="/shutdown" element={<ShutdownScreen />} />
 						<Route
 							path="/finalRound"
