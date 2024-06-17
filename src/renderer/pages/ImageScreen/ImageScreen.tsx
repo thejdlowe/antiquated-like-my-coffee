@@ -21,7 +21,7 @@ export const Image = ({ ImgKey, src }: { ImgKey: string; src: string }) => {
 			}}
 			onClick={(evt) => {
 				evt.preventDefault();
-				navigate('/game/1');
+				navigate('/game/1/true');
 			}}
 		/>
 	);
