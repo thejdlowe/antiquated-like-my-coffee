@@ -23,7 +23,7 @@ export const GameScreen = () => {
 		playerData = data.show.Round3.players;
 		currentMiniGame = data.show.Round3.minigame;
 	}
-	const maxTimeRemaining = 60 * 0.5; //Ten minutes
+	const maxTimeRemaining = 60 * 10; //Ten minutes
 	const [showMiniGame, setShowMiniGame] = useState<boolean>(false);
 	const [timeRemaining, setTimeRemaining] = useState(0);
 	const [progressBarColor, setProgressBarColor] = useState('green');
@@ -40,7 +40,6 @@ export const GameScreen = () => {
 			if (count - 1 <= 0) {
 				window.clearInterval(timerRef.current || 0);
 				setGameRunning(false);
-				//const [startTime, endTime] = audioData[playSound] ?? [0, 1];
 				const fileName = `./amongus.mp3`;
 
 				const audioElement = new Audio(fileName);
