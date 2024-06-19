@@ -1,10 +1,20 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
 export const FinalRoundScreen = () => {
 	return (
 		<>
-			<Typography variant="h2">FINAL ROUND</Typography>
+			<Grid
+				container
+				direction="column"
+				alignItems="center"
+				justifyContent="center"
+				style={{
+					minHeight: '100vh',
+				}}
+			>
+				<Typography variant="h1">FINAL ROUND</Typography>
+				<Typography variant="h2">Prop Line</Typography>
+			</Grid>
 		</>
 	);
 };
