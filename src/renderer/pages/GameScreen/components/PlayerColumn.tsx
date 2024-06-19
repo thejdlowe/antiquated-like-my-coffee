@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Grid, Typography } from '@mui/material';
 import { audioData } from '../../../media';
+import './playerColumn.css';
 export const PlayerColumn = ({
 	playerName,
 	pronouns,
