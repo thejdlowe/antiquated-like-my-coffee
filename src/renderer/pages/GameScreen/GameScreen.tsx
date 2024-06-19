@@ -191,7 +191,7 @@ export const GameScreen = () => {
 									resetButtonPressed();
 									setTimeout(() => {
 										setHostAllowScore(true);
-									}, 1000);
+									}, 600);
 								}
 							}
 						}
