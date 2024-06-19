@@ -15,21 +15,7 @@ import {
 } from '@mui/material';
 import './App.css';
 
-let theme = createTheme({
-	// typography: {
-	// 	fontFamily: '"Radio Canada Big Bold"',
-	// },
-	// components: {
-	// 	MuiCssBaseline: {
-	// 		styleOverrides: `
-	// 			@font-face {
-	// 				font-family: 'Radio';
-	// 				src: url(${Radio}) format=('truetype');
-	// 			}
-	// 		`,
-	// 	},
-	// },
-});
+let theme = createTheme({});
 theme = responsiveFontSizes(theme);
 
 export default function App() {
