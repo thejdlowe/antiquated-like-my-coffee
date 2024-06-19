@@ -37,14 +37,16 @@ export const PlayerColumn = ({
 		}
 		if (isActive) {
 			setMyStyle({
-				'-webkit-text-stroke': '1px black',
-				"color": 'white !important',
+				WebkitTextStroke: '1px black',
+				color: 'white !important',
 				backgroundColor,
 			});
 		} else {
 			setMyStyle({ backgroundColor: 'white' });
 		}
 	}, [isActive]);
+
+	console.log(myStyle);
 
 	return (
 		<Grid
