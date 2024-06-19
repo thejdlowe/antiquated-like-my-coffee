@@ -6,7 +6,6 @@ import { whichControllerIsWhich } from '../../consts';
 import { Container, Box, LinearProgress } from '@mui/material';
 import { PlayerColumn } from './components';
 import { data } from '../../data';
-import './gameScreen.css';
 
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
@@ -129,7 +128,7 @@ export const GameScreen = () => {
 					buttonPressed.whichController ===
 					whichControllerIsWhich.HOST
 				) {
-					if (true === false) {
+					if (true === true) {
 						//We will be changing this to a method Delaysia prefers
 						let score = 0;
 
