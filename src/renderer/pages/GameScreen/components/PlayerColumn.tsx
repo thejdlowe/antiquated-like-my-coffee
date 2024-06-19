@@ -34,17 +34,17 @@ export const PlayerColumn = ({
 
 			audioElement.play();
 		}
+		if (isActive) {
+			myStyle = {
+				'-webkit-text-stroke': '1px black',
+				color: 'white !important',
+				backgroundColor,
+			};
+		} else {
+			myStyle = { backgroundColor: 'white' };
+		}
 	}, [isActive]);
 	let myStyle = {};
-	if (isActive) {
-		myStyle = {
-			'-webkit-text-stroke': '1px black',
-			color: 'white !important',
-			backgroundColor,
-		};
-	} else {
-		myStyle = { backgroundColor: 'white' };
-	}
 
 	return (
 		<Grid
