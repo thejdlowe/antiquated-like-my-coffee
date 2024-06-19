@@ -3,6 +3,15 @@
 	src: url('RadioCanadaBig-VariableFont_wght.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'budmo';
+	src: url('budmo.otf') format('opentype');
+}
+
 * {
 	font-family: 'Radio';
+}
+
+.playerName {
+	font-family: 'budmo';
 }

@@ -69,6 +69,7 @@ export const PlayerColumn = ({
 				<Typography
 					variant="h1"
 					sx={{ fontSize: '8vh !important', lineHeight: '1.4' }}
+					className="playerName"
 				>
 					{playerName}
 				</Typography>
