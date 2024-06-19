@@ -38,7 +38,7 @@ export const PlayerColumn = ({
 		if (isActive) {
 			setMyStyle({
 				WebkitTextStroke: '1px black',
-				color: 'white !important',
+				color: 'white',
 				backgroundColor,
 			});
 		} else {
