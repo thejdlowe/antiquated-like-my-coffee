@@ -13,13 +13,12 @@ import {
 	ThemeProvider,
 	CssBaseline,
 } from '@mui/material';
-import Radio from './media/RadioCanadaBig-VariableFont_wght.ttf';
 import './App.css';
 
 let theme = createTheme({
-	typography: {
-		fontFamily: '"Radio Canada Big Bold"',
-	},
+	// typography: {
+	// 	fontFamily: '"Radio Canada Big Bold"',
+	// },
 	// components: {
 	// 	MuiCssBaseline: {
 	// 		styleOverrides: `
