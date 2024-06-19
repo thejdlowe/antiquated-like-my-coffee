@@ -35,6 +35,16 @@ export const PlayerColumn = ({
 			audioElement.play();
 		}
 	}, [isActive]);
+	let myStyle = {};
+	if (isActive) {
+		myStyle = {
+			'-webkit-text-stroke': '1px black',
+			color: 'white !important',
+			backgroundColor,
+		};
+	} else {
+		myStyle = { backgroundColor: 'white' };
+	}
 
 	return (
 		<Grid
@@ -45,7 +55,7 @@ export const PlayerColumn = ({
 			style={{
 				minHeight: '100vh',
 				// transition: 'background 1s ease',
-				backgroundColor: isActive ? backgroundColor : 'white',
+				...myStyle,
 			}}
 		>
 			<Grid
