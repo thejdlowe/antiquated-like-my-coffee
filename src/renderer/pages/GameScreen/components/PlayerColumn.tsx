@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Grid, Typography } from '@mui/material';
 import { audioData } from '../../../media';
 export const PlayerColumn = ({
@@ -20,7 +20,7 @@ export const PlayerColumn = ({
 	setActivePlayer: any;
 	playSound: number;
 }) => {
-	let myStyle = {};
+	const [myStyle, setMyStyle] = useState({});
 	useEffect(() => {
 		if (isActive) {
 			const [startTime, endTime] = audioData[playSound] ?? [0, 1];
@@ -36,13 +36,13 @@ export const PlayerColumn = ({
 			audioElement.play();
 		}
 		if (isActive) {
-			myStyle = {
+			setMyStyle({
 				'-webkit-text-stroke': '1px black',
 				color: 'white !important',
 				backgroundColor,
-			};
+			});
 		} else {
-			myStyle = { backgroundColor: 'white' };
+			setMyStyle({ backgroundColor: 'white' });
 		}
 	}, [isActive]);
 
