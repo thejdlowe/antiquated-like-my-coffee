@@ -55,12 +55,22 @@ export const PlayerColumn = ({
 				justifyContent="center"
 				style={{ minHeight: '33vh' }}
 			>
-				<Typography variant="h2">Player {playerNum + ''}</Typography>
+				<Typography
+					variant="h2"
+					sx={{ fontSize: '8vh', lineHeight: '1.4' }}
+				>
+					Player {playerNum + ''}
+				</Typography>
 				<Typography variant="h1">{playerName}</Typography>
 				<Typography variant="h3">{pronouns}</Typography>
 			</Grid>
 			<Grid item style={{ minHeight: '66vh' }}>
-				<Typography variant="h1">{score}</Typography>
+				<Typography
+					variant="h1"
+					sx={{ fontSize: '8vh', lineHeight: '1.4' }}
+				>
+					{score}
+				</Typography>
 			</Grid>
 		</Grid>
 	);
