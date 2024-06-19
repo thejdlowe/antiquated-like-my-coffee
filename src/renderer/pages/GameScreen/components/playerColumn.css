@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'budmo';
-	src: url('budmo.otf') format('opentype');
+	src: url('./budmo.otf') format('opentype');
 }
 
 .playerName {
