@@ -20,6 +20,7 @@ export const PlayerColumn = ({
 	setActivePlayer: any;
 	playSound: number;
 }) => {
+	let myStyle = {};
 	useEffect(() => {
 		if (isActive) {
 			const [startTime, endTime] = audioData[playSound] ?? [0, 1];
@@ -44,7 +45,6 @@ export const PlayerColumn = ({
 			myStyle = { backgroundColor: 'white' };
 		}
 	}, [isActive]);
-	let myStyle = {};
 
 	return (
 		<Grid
