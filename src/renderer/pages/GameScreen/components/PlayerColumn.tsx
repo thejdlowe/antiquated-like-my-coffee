@@ -27,7 +27,7 @@ export const PlayerColumn = ({
 				startTime <= 0 ? 0 : startTime / 1000,
 				endTime / 1000,
 			].join(',')}`;
-			console.log(fileName);
+
 			const audioElement = new Audio(fileName);
 
 			audioElement.preload = 'auto';
