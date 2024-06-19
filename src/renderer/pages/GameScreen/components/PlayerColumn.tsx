@@ -39,14 +39,12 @@ export const PlayerColumn = ({
 			setMyStyle({
 				WebkitTextStroke: '1px black',
 				color: 'white !important',
-				backgroundColor: "black",
+				backgroundColor,
 			});
 		} else {
 			setMyStyle({ backgroundColor: 'white' });
 		}
 	}, [isActive]);
-
-	console.log(myStyle);
 
 	return (
 		<Grid
