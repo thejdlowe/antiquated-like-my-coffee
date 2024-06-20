@@ -67,11 +67,12 @@ a:hover {
 
 @font-face {
 	font-family: 'Radio';
-	src: url('./RadioCanadaBig-VariableFont_wght.ttf') format('truetype');
+	src: url(http://localhost:1212/RadioCanadaBig-VariableFont_wght.ttf)
+		format('truetype');
 }
 
 * {
-	font-family: 'Radio';
+	font-family: 'Radio !important';
 }
 
 @font-face {
@@ -80,5 +81,5 @@ a:hover {
 }
 
 .playerName {
-	font-family: 'budmo';
+	font-family: 'budmo !important';
 }
