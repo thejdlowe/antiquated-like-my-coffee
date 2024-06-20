@@ -72,7 +72,7 @@ a:hover {
 }
 
 * {
-	font-family: 'Radio !important';
+	font-family: 'Radio' !important;
 }
 
 @font-face {
@@ -81,5 +81,5 @@ a:hover {
 }
 
 .playerName {
-	font-family: 'budmo !important';
+	font-family: 'budmo' !important;
 }
