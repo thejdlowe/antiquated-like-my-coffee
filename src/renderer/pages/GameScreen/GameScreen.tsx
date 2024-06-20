@@ -6,7 +6,6 @@ import { whichControllerIsWhich } from '../../consts';
 import { Container, Box, LinearProgress } from '@mui/material';
 import { PlayerColumn } from './components';
 import { data } from '../../data';
-import "./gameScreen.css";
 
 export const GameScreen = () => {
 	const timerRef = useRef<number | null>();
