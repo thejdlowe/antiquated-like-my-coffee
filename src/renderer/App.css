@@ -76,7 +76,7 @@ a:hover {
 
 @font-face {
 	font-family: 'budmo';
-	src: url('budmo.otf') format('opentype');
+	src: url('http://localhost:1212/budmo.otf') format('opentype');
 }
 
 .playerName {
