@@ -65,7 +65,8 @@ a:hover {
 	cursor: none;
 }
 
-@font-face {
+/* The below works, but looks ugly due to weird CSS*/
+/* @font-face {
 	font-family: 'Radio';
 	src: url(http://localhost:1212/RadioCanadaBig-VariableFont_wght.ttf)
 		format('truetype');
@@ -82,4 +83,4 @@ a:hover {
 
 .playerName {
 	font-family: 'budmo' !important;
-}
+} */
