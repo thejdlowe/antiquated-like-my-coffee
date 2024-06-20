@@ -67,7 +67,7 @@ a:hover {
 
 @font-face {
 	font-family: 'Radio';
-	src: url('RadioCanadaBig-VariableFont_wght.ttf') format('truetype');
+	src: url('./RadioCanadaBig-VariableFont_wght.ttf') format('truetype');
 }
 
 * {
