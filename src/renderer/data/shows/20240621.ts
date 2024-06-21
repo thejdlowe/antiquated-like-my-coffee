@@ -55,7 +55,7 @@ export const show: ShowType = {
 		],
 	},
 	Round3: {
-		minigame: "We've Got Movie Line",
+		minigame: 'Sexy Slogans',
 		players: [
 			{
 				displayName: 'Rob',
