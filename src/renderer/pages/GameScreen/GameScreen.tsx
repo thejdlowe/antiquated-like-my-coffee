@@ -128,7 +128,7 @@ export const GameScreen = () => {
 					buttonPressed.whichController ===
 					whichControllerIsWhich.HOST
 				) {
-					if (true === true) {
+					if (true === false) {
 						//We will be changing this to a method Delaysia prefers
 						let score = 0;
 
