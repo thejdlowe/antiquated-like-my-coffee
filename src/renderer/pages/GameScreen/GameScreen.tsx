@@ -34,9 +34,12 @@ export const GameScreen = () => {
 	const [playerTwoScore, setPlayerTwoScore] = useState<number>(0);
 	const [playerThreeScore, setPlayerThreeScore] = useState<number>(0);
 
-	const playSound = (fileName: string) => {
+	const playSound = (fileName: string, onend?: () => void) => {
 		const audioElement = new Audio(fileName);
 		audioElement.preload = 'auto';
+		audioElement.addEventListener('ended', () => {
+			onend && onend();
+		});
 		audioElement.play();
 	};
 
@@ -166,12 +169,16 @@ export const GameScreen = () => {
 								if (buttonPressed.AButton) {
 									scoreChanged = true;
 									score = +1;
-									playSound(`./scoreincrease.mp3`);
+									playSound(`./scoreincrease.mp3`, () => {
+										setHostAllowScore(true);
+									});
 								}
 								if (buttonPressed.BButton) {
 									scoreChanged = true;
 									score = -1;
-									playSound(`./scoredecrease.mp3`);
+									playSound(`./scoredecrease.mp3`, () => {
+										setHostAllowScore(true);
+									});
 								}
 
 								if (scoreChanged) {
@@ -198,9 +205,6 @@ export const GameScreen = () => {
 										);
 									setHostAllowScore(false);
 									resetButtonPressed();
-									setTimeout(() => {
-										setHostAllowScore(true);
-									}, 600);
 								}
 							}
 						}
