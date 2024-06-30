@@ -34,18 +34,18 @@ export const GameScreen = () => {
 	const [playerTwoScore, setPlayerTwoScore] = useState<number>(0);
 	const [playerThreeScore, setPlayerThreeScore] = useState<number>(0);
 
+	const playSound = (fileName: string) => {
+		const audioElement = new Audio(fileName);
+		audioElement.preload = 'auto';
+		audioElement.play();
+	};
+
 	const updateTimer = () => {
 		setTimeRemaining((count) => {
 			if (count - 1 <= 0) {
 				window.clearInterval(timerRef.current || 0);
 				setGameRunning(false);
-				const fileName = `./amongus.mp3`;
-
-				const audioElement = new Audio(fileName);
-
-				audioElement.preload = 'auto';
-
-				audioElement.play();
+				playSound(`./amongus.mp3`);
 				return 0;
 			}
 			return count - 1;
@@ -158,6 +158,7 @@ export const GameScreen = () => {
 						if (buttonPressed.bigButton) {
 							setCanAcceptAnswers(true);
 							setPlayerAnswering(null);
+							playSound(`./playersready.mp3`);
 						} else {
 							if (hostAllowScore) {
 								let scoreChanged = false;
@@ -165,10 +166,12 @@ export const GameScreen = () => {
 								if (buttonPressed.AButton) {
 									scoreChanged = true;
 									score = +1;
+									playSound(`./scoreincrease.mp3`);
 								}
 								if (buttonPressed.BButton) {
 									scoreChanged = true;
 									score = -1;
+									playSound(`./scoredecrease.mp3`);
 								}
 
 								if (scoreChanged) {
