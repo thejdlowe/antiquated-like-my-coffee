@@ -56,6 +56,7 @@ export const GameScreen = () => {
 	};
 
 	useEffect(() => {
+		playSound('./intro.mp3');
 		setTimeRemaining(maxTimeRemaining);
 		setGameRunning(true);
 		const timerID = window.setInterval(() => {
