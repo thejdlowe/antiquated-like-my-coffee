@@ -1,28 +1,27 @@
-import Anthony from './Anthony.png';
-import Chakra from './Chakra.png';
-import ChrisH from './Chris H.png';
-import Hannah from './Hannah.png';
+import Bryn from './Bryn.png';
+import Chelsea from './Chelsea.png';
+import Indy from './Indy.png';
 import JD from './JD.png';
-import Heather from './Heather.png';
-import Kaley from './Kaley.png';
 import Justin from './Justin.png';
-import Motts from './Motts.png';
-import RB from './RB.png';
-import Rob from './Rob.png';
+import Kim from './Kim.png';
+import Lindy from './Lindy.png';
+import Lisa from './Lisa.png';
+import Melissa from './Melissa.png';
+import Michelle from './Michelle.png';
+
 import Logo from './logo.png';
 
 export const playerImages = {
-	Anthony,
-	Chakra,
-	ChrisH,
-	Hannah,
+	Bryn,
+	Chelsea,
+	Indy,
 	JD,
-	Heather,
-	Kaley,
 	Justin,
-	Motts,
-	RB,
-	Rob,
+	Kim,
+	Lindy,
+	Lisa,
+	Melissa,
+	Michelle,
 };
 
 export const logo = Logo;
