@@ -7,8 +7,8 @@ import Kim from './Kim.png';
 import Lindy from './Lindy.png';
 import Lisa from './Lisa.png';
 import Melissa from './Melissa.png';
-import Michelle from './Michelle.png';
-
+import Apply from './Apply.png';
+import Social from './Social.png';
 import Logo from './logo.png';
 
 export const playerImages = {
@@ -17,11 +17,12 @@ export const playerImages = {
 	Indy,
 	JD,
 	Justin,
+	Apply,
 	Kim,
 	Lindy,
 	Lisa,
 	Melissa,
-	Michelle,
+	Social,
 };
 
 export const logo = Logo;
