@@ -5,10 +5,12 @@ export const ScreenSaverScreen = () => {
 	const images = () => {
 		const holders = [];
 		for (const key in playerImages) {
-			holders.push(
-				// @ts-ignore
-				<Image key={key} ImgKey={key} src={playerImages[key]} />,
-			);
+			if (key !== null) {
+				holders.push(
+					// @ts-ignore
+					<Image key={key} ImgKey={key} src={playerImages[key]} />,
+				);
+			}
 		}
 		return holders;
 	};

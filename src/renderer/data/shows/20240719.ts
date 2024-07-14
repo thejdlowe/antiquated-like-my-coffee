@@ -3,7 +3,7 @@ import { playerImages } from '../../media';
 
 export const show: ShowType = {
 	Round1: {
-		minigame: 'Sexy Slogans',
+		minigame: 'Dopple-Banger',
 		players: [
 			{
 				displayName: 'Bryn',
@@ -20,21 +20,21 @@ export const show: ShowType = {
 				sound: 1,
 			},
 			{
-				displayName: 'Michelle',
-				fullName: 'Michelle Hoffman',
-				imagePath: playerImages.Michelle,
+				displayName: 'Chelsea',
+				fullName: 'Chelsea Millin',
+				imagePath: playerImages.Chelsea,
 				pronouns: 'She/Her',
 				sound: 2,
 			},
 		],
 	},
 	Round2: {
-		minigame: 'Acronympho',
+		minigame: 'Sexy Slogans',
 		players: [
 			{
-				displayName: 'Chelsea',
-				fullName: 'Chelsea Millin',
-				imagePath: playerImages.Chelsea,
+				displayName: 'Kristen',
+				fullName: 'Kristen B',
+				imagePath: null,
 				pronouns: 'She/Her',
 				sound: 3,
 			},
@@ -55,7 +55,7 @@ export const show: ShowType = {
 		],
 	},
 	Round3: {
-		minigame: 'Sexy Slogans',
+		minigame: 'Time Line',
 		players: [
 			{
 				displayName: 'Kim',

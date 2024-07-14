@@ -2,7 +2,7 @@ export type PlayerType = {
 	displayName: string;
 	fullName: string;
 	pronouns: string;
-	imagePath: string;
+	imagePath: string | null;
 	sound: number;
 };
 
