@@ -8,7 +8,7 @@ export const TitleScreen = () => {
 	useEffect(() => {
 		const screensave = setTimeout(() => {
 			navigate('/screensaver');
-		}, 60000);
+		}, 6000);
 		return () => {
 			clearTimeout(screensave);
 		};
