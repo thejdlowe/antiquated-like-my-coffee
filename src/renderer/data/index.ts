@@ -1,2 +1,2 @@
 //Update where this points to before every new show!
-export * as data from './shows/20240719';
+export * as data from './shows/20240809';
