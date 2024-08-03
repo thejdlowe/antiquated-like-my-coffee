@@ -1,27 +1,29 @@
-import Bryn from './Bryn.png';
-import Chelsea from './Chelsea.png';
-import Indy from './Indy.png';
+import Audrey from './Audrey.png';
+import Chris from './Chris.png';
+import Emmy from './Emmy.png';
 import JD from './JD.png';
-import Justin from './Justin.png';
-import Kim from './Kim.png';
-import Lindy from './Lindy.png';
-import Lisa from './Lisa.png';
-import Melissa from './Melissa.png';
+import Jimmy from "./Jimmy.png";
+import Eric from './Eric.png';
+import Jeremy from './Jeremy.png';
+import Josh from './Josh.png';
+import Lexi from './Lexi.png';
+import Tristan from './Tristan.png';
 import Apply from './Apply.png';
 import Social from './Social.png';
 import Logo from './logo.png';
 
 export const playerImages = {
-	Bryn,
-	Chelsea,
-	Indy,
+	Audrey,
+	Chris,
+	Emmy,
 	JD,
-	Justin,
+	Jimmy,
+	Eric,
 	Apply,
-	Kim,
-	Lindy,
-	Lisa,
-	Melissa,
+	Jeremy,
+	Josh,
+	Lexi,
+	Tristan,
 	Social,
 };
 
