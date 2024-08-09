@@ -20,10 +20,10 @@ export const show: ShowType = {
 				sound: 1,
 			},
 			{
-				displayName: 'Audrey',
-				fullName: 'Audrey Soper',
+				displayName: 'Jonathan',
+				fullName: 'Jonathan Dersch',
 				imagePath: playerImages.Audrey,
-				pronouns: 'She/Her',
+				pronouns: 'He/Him',
 				sound: 2,
 			},
 		],
